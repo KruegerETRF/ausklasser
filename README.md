@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ausklasser
 Code for the paper 'Ausklasser - a classifier for German apprenticeship advertisements' and the model published [here](https://huggingface.co/KKrueger/ausklasser). This code features the experiment pipeline. 
 
@@ -8,3 +9,6 @@ The code uses the [GuildAI](https://guild.ai/) framework for experiment run auto
 ```console
 ./ausklasser:~$ guild run pipeline
 ```
+=======
+# ausklasser
+>>>>>>> public/main
