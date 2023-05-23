@@ -1,0 +1,8 @@
+balance_strat: no_balance
+epochs: 7
+label_strat: multiclass
+lr: 1.0e-05
+model: gbert
+ratio: 0.3
+size: 500
+warmup: 0

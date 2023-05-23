@@ -1,0 +1,8 @@
+balance_strat: oversample
+epochs: 5
+label_strat: multiclass
+lr: 1.0e-05
+model: bert
+ratio: 0.3
+size: 10000
+warmup: 500

@@ -1,0 +1,4 @@
+balance_strat: downsample
+label_strat: binary
+ratio: 0.7
+size: 1000

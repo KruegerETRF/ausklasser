@@ -1,0 +1,6 @@
+architecture: 64bit WindowsPE
+cpus: 20
+processor: Intel64 Family 6 Model 151 Stepping 2, GenuineIntel
+python_version: 3.9.13 (main, Aug 25 2022, 23:51:50) [MSC v.1916 64 bit (AMD64)]
+uname: Windows DESKTOP-IQD0VQR 10 10.0.22621 AMD64 Intel64 Family 6 Model 151 Stepping
+  2, GenuineIntel

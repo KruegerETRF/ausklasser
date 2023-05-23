@@ -1,0 +1,8 @@
+balance_strat: downsample
+epochs: 5
+label_strat: binary
+lr: 1.0e-06
+model: gbert
+ratio: 0.7
+size: 1000
+warmup: 0

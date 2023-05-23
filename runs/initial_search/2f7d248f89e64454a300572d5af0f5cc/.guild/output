@@ -1,0 +1,38 @@
+INFO: [numexpr.utils] Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO: [numexpr.utils] NumExpr defaulting to 8 threads.
+INFO: [root] num_labels: 2
+INFO: [root] Detected label names: ['Auszubildende', 'Sonstige Arbeitnehmer']
+Some weights of the model checkpoint at agne/jobBERT-de were not used when initializing BertForSequenceClassification: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at agne/jobBERT-de and are newly initialized: ['classifier.bias', 'bert.pooler.dense.weight', 'classifier.weight', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  0%|          | 0/9 [00:00<?, ?ba/s]  0%|          | 0/9 [00:00<?, ?ba/s]
+Traceback (most recent call last):
+  File "C:\Users\Admin\.conda\envs\aussklass\.guild\runs\2f7d248f89e64454a300572d5af0f5cc\.guild\sourcecode\train.py", line 58, in <module>
+    tokenized_dataset = dataset.map(tokenize_function, batched=True)
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\datasets\arrow_dataset.py", line 2572, in map
+    return self._map_single(
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\datasets\arrow_dataset.py", line 584, in wrapper
+    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\datasets\arrow_dataset.py", line 551, in wrapper
+    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\datasets\fingerprint.py", line 480, in wrapper
+    out = func(self, *args, **kwargs)
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\datasets\arrow_dataset.py", line 2968, in _map_single
+    batch = apply_function_on_filtered_inputs(
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\datasets\arrow_dataset.py", line 2852, in apply_function_on_filtered_inputs
+    processed_inputs = function(*fn_args, *additional_args, **fn_kwargs)
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\datasets\arrow_dataset.py", line 2532, in decorated
+    result = f(decorated_item, *args, **kwargs)
+  File "C:\Users\Admin\.conda\envs\aussklass\.guild\runs\2f7d248f89e64454a300572d5af0f5cc\.guild\sourcecode\train.py", line 54, in tokenize_function
+    return tokenizer(data["text"], padding = "max_length", truncation = True)
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\transformers\tokenization_utils_base.py", line 2488, in __call__
+    encodings = self._call_one(text=text, text_pair=text_pair, **all_kwargs)
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\transformers\tokenization_utils_base.py", line 2574, in _call_one
+    return self.batch_encode_plus(
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\transformers\tokenization_utils_base.py", line 2765, in batch_encode_plus
+    return self._batch_encode_plus(
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\transformers\tokenization_utils_fast.py", line 429, in _batch_encode_plus
+    encodings = self._tokenizer.encode_batch(
+TypeError: TextEncodeInput must be Union[TextInputSequence, Tuple[InputSequence, InputSequence]]

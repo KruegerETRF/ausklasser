@@ -1,0 +1,16 @@
+- flags:
+    balance_strat: ${balance_strat}
+    label_strat: ${label_strat}
+    ratio: ${ratio}
+    size: ${size}
+  run: load-data
+- flags:
+    epochs: ${epochs}
+    label_strat: ${label_strat}
+    lr: ${lr}
+    model: ${model}
+    warmup: ${warmup}
+  run: train
+- flags:
+    label_strat: ${label_strat}
+  run: test

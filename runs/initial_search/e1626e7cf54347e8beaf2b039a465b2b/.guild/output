@@ -1,0 +1,109 @@
+INFO: [numexpr.utils] Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO: [numexpr.utils] NumExpr defaulting to 8 threads.
+INFO: [root] num_labels: 4
+INFO: [root] Detected label names: ['Auszubildende', 'Verschiedenes', 'Führungskräfte', 'Fach- und Arbeitskräfte']
+Some weights of the model checkpoint at bert-base-multilingual-cased were not used when initializing BertForSequenceClassification: ['cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-multilingual-cased and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  0%|          | 0/1 [00:00<?, ?ba/s]  0%|          | 0/1 [00:00<?, ?ba/s]
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--precision\4e7f439a346715f68500ce6f2be82bf3272abd3f20bdafd203a2c4f85b61dd5f (last modified on Mon Dec 19 10:49:43 2022) since it couldn't be found locally at evaluate-metric--precision, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--recall\e40e6e98d18ff3f210f4d0b26fa721bfaa80704b1fdf890fa551cfabf94fc185 (last modified on Mon Dec 19 10:49:44 2022) since it couldn't be found locally at evaluate-metric--recall, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--accuracy\f887c0aab52c2d38e1f8a215681126379eca617f96c447638f751434e8e65b14 (last modified on Mon Dec 19 10:49:46 2022) since it couldn't be found locally at evaluate-metric--accuracy, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--f1\0ca73f6cf92ef5a268320c697f7b940d1030f8471714bffdb6856c641b818974 (last modified on Mon Dec 19 10:49:47 2022) since it couldn't be found locally at evaluate-metric--f1, or remotely on the Hugging Face Hub.
+The following columns in the training set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, id, label_class, __index_level_0__. If text, id, label_class, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running training *****
+  Num examples = 168
+  Num Epochs = 5
+  Instantaneous batch size per device = 8
+  Total train batch size (w. parallel, distributed & accumulation) = 8
+  Gradient Accumulation steps = 1
+  Total optimization steps = 105
+  Number of trainable parameters = 177856516
+  0%|          | 0/105 [00:00<?, ?it/s]You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+  1%|          | 1/105 [00:00<01:25,  1.22it/s]  2%|1         | 2/105 [00:01<00:49,  2.08it/s]  3%|2         | 3/105 [00:01<00:37,  2.69it/s]  4%|3         | 4/105 [00:01<00:32,  3.12it/s]  5%|4         | 5/105 [00:01<00:29,  3.42it/s]  6%|5         | 6/105 [00:02<00:27,  3.64it/s]  7%|6         | 7/105 [00:02<00:25,  3.78it/s]  8%|7         | 8/105 [00:02<00:25,  3.86it/s]  9%|8         | 9/105 [00:02<00:24,  3.94it/s] 10%|9         | 10/105 [00:03<00:23,  4.02it/s] 10%|#         | 11/105 [00:03<00:23,  4.04it/s] 11%|#1        | 12/105 [00:03<00:22,  4.09it/s] 12%|#2        | 13/105 [00:03<00:22,  4.11it/s] 13%|#3        | 14/105 [00:03<00:22,  4.10it/s] 14%|#4        | 15/105 [00:04<00:21,  4.13it/s] 15%|#5        | 16/105 [00:04<00:21,  4.10it/s] 16%|#6        | 17/105 [00:04<00:21,  4.13it/s] 17%|#7        | 18/105 [00:04<00:21,  4.10it/s] 18%|#8        | 19/105 [00:05<00:20,  4.10it/s] 19%|#9        | 20/105 [00:05<00:20,  4.14it/s] 20%|##        | 21/105 [00:05<00:20,  4.15it/s]                                                 20%|##        | 21/105 [00:05<00:20,  4.15it/s]{'loss': 1.385, 'learning_rate': 4.2000000000000006e-07, 'epoch': 1.0}
+The following columns in the evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, id, label_class, __index_level_0__. If text, id, label_class, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 72
+  Batch size = 8
+
+  0%|          | 0/9 [00:00<?, ?it/s][A
+ 33%|###3      | 3/9 [00:00<00:00, 20.80it/s][A
+ 67%|######6   | 6/9 [00:00<00:00, 16.02it/s][A
+ 89%|########8 | 8/9 [00:00<00:00, 14.65it/s][A                                                {'eval_loss': 1.3846267461776733, 'eval_precision': 0.14214046822742477, 'eval_recall': 0.275, 'eval_accuracy': 0.2777777777777778, 'eval_f1': 0.18614718614718617, 'eval_runtime': 0.6767, 'eval_samples_per_second': 106.4, 'eval_steps_per_second': 13.3, 'epoch': 1.0}
+
+                                             [A 20%|##        | 21/105 [00:06<00:20,  4.15it/s]
+100%|##########| 9/9 [00:00<00:00, 14.65it/s][A
+                                             [A 21%|##        | 22/105 [00:06<00:36,  2.25it/s] 22%|##1       | 23/105 [00:06<00:31,  2.60it/s] 23%|##2       | 24/105 [00:07<00:27,  2.94it/s] 24%|##3       | 25/105 [00:07<00:24,  3.20it/s] 25%|##4       | 26/105 [00:07<00:23,  3.43it/s] 26%|##5       | 27/105 [00:07<00:21,  3.64it/s] 27%|##6       | 28/105 [00:08<00:20,  3.72it/s] 28%|##7       | 29/105 [00:08<00:19,  3.84it/s] 29%|##8       | 30/105 [00:08<00:19,  3.88it/s] 30%|##9       | 31/105 [00:08<00:18,  3.92it/s] 30%|###       | 32/105 [00:09<00:18,  3.98it/s] 31%|###1      | 33/105 [00:09<00:17,  4.04it/s] 32%|###2      | 34/105 [00:09<00:17,  4.01it/s] 33%|###3      | 35/105 [00:09<00:17,  4.01it/s] 34%|###4      | 36/105 [00:10<00:17,  4.00it/s] 35%|###5      | 37/105 [00:10<00:16,  4.03it/s] 36%|###6      | 38/105 [00:10<00:16,  4.01it/s] 37%|###7      | 39/105 [00:10<00:16,  4.01it/s] 38%|###8      | 40/105 [00:11<00:16,  4.05it/s] 39%|###9      | 41/105 [00:11<00:15,  4.09it/s] 40%|####      | 42/105 [00:11<00:15,  4.09it/s]                                                {'loss': 1.3916, 'learning_rate': 8.400000000000001e-07, 'epoch': 2.0}
+ 40%|####      | 42/105 [00:11<00:15,  4.09it/s]The following columns in the evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, id, label_class, __index_level_0__. If text, id, label_class, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 72
+  Batch size = 8
+
+  0%|          | 0/9 [00:00<?, ?it/s][A
+ 33%|###3      | 3/9 [00:00<00:00, 15.22it/s][A
+ 56%|#####5    | 5/9 [00:00<00:00, 14.46it/s][A
+ 78%|#######7  | 7/9 [00:00<00:00, 13.99it/s][A
+100%|##########| 9/9 [00:00<00:00, 13.78it/s][A                                                
+                                             [A{'eval_loss': 1.3693228960037231, 'eval_precision': 0.14814814814814814, 'eval_recall': 0.296875, 'eval_accuracy': 0.3055555555555556, 'eval_f1': 0.1967799642218247, 'eval_runtime': 0.7226, 'eval_samples_per_second': 99.646, 'eval_steps_per_second': 12.456, 'epoch': 2.0}
+ 40%|####      | 42/105 [00:12<00:15,  4.09it/s]
+100%|##########| 9/9 [00:00<00:00, 13.78it/s][A
+                                             [A 41%|####      | 43/105 [00:12<00:28,  2.15it/s] 42%|####1     | 44/105 [00:12<00:24,  2.49it/s] 43%|####2     | 45/105 [00:12<00:21,  2.81it/s] 44%|####3     | 46/105 [00:13<00:19,  3.08it/s] 45%|####4     | 47/105 [00:13<00:17,  3.34it/s] 46%|####5     | 48/105 [00:13<00:16,  3.55it/s] 47%|####6     | 49/105 [00:13<00:15,  3.71it/s] 48%|####7     | 50/105 [00:14<00:14,  3.84it/s] 49%|####8     | 51/105 [00:14<00:13,  3.93it/s] 50%|####9     | 52/105 [00:14<00:13,  3.98it/s] 50%|#####     | 53/105 [00:14<00:12,  4.05it/s] 51%|#####1    | 54/105 [00:15<00:12,  4.05it/s] 52%|#####2    | 55/105 [00:15<00:12,  4.09it/s] 53%|#####3    | 56/105 [00:15<00:12,  4.08it/s] 54%|#####4    | 57/105 [00:15<00:11,  4.08it/s] 55%|#####5    | 58/105 [00:16<00:11,  4.13it/s] 56%|#####6    | 59/105 [00:16<00:11,  4.10it/s] 57%|#####7    | 60/105 [00:16<00:10,  4.12it/s] 58%|#####8    | 61/105 [00:16<00:10,  4.19it/s] 59%|#####9    | 62/105 [00:17<00:10,  4.12it/s] 60%|######    | 63/105 [00:17<00:10,  4.05it/s]                                                {'loss': 1.3785, 'learning_rate': 1.26e-06, 'epoch': 3.0}
+ 60%|######    | 63/105 [00:17<00:10,  4.05it/s]The following columns in the evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, id, label_class, __index_level_0__. If text, id, label_class, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 72
+  Batch size = 8
+
+  0%|          | 0/9 [00:00<?, ?it/s][A
+ 33%|###3      | 3/9 [00:00<00:00, 20.15it/s][A
+ 67%|######6   | 6/9 [00:00<00:00, 15.54it/s][A
+ 89%|########8 | 8/9 [00:00<00:00, 14.71it/s][A                                                {'eval_loss': 1.3479666709899902, 'eval_precision': 0.1443498452012384, 'eval_recall': 0.2875, 'eval_accuracy': 0.2916666666666667, 'eval_f1': 0.19206896551724137, 'eval_runtime': 0.6854, 'eval_samples_per_second': 105.053, 'eval_steps_per_second': 13.132, 'epoch': 3.0}
+                                             [A
+ 60%|######    | 63/105 [00:18<00:10,  4.05it/s]
+100%|##########| 9/9 [00:00<00:00, 14.71it/s][A
+                                             [A 61%|######    | 64/105 [00:18<00:18,  2.21it/s] 62%|######1   | 65/105 [00:18<00:15,  2.55it/s] 63%|######2   | 66/105 [00:18<00:13,  2.88it/s] 64%|######3   | 67/105 [00:19<00:12,  3.15it/s] 65%|######4   | 68/105 [00:19<00:10,  3.39it/s] 66%|######5   | 69/105 [00:19<00:10,  3.57it/s] 67%|######6   | 70/105 [00:19<00:09,  3.71it/s] 68%|######7   | 71/105 [00:19<00:08,  3.79it/s] 69%|######8   | 72/105 [00:20<00:08,  3.87it/s] 70%|######9   | 73/105 [00:20<00:08,  3.92it/s] 70%|#######   | 74/105 [00:20<00:07,  4.00it/s] 71%|#######1  | 75/105 [00:20<00:07,  4.09it/s] 72%|#######2  | 76/105 [00:21<00:07,  4.07it/s] 73%|#######3  | 77/105 [00:21<00:06,  4.11it/s] 74%|#######4  | 78/105 [00:21<00:06,  4.13it/s] 75%|#######5  | 79/105 [00:21<00:06,  4.10it/s] 76%|#######6  | 80/105 [00:22<00:06,  4.13it/s] 77%|#######7  | 81/105 [00:22<00:05,  4.16it/s] 78%|#######8  | 82/105 [00:22<00:05,  4.15it/s] 79%|#######9  | 83/105 [00:22<00:05,  4.21it/s] 80%|########  | 84/105 [00:23<00:05,  4.19it/s]                                                {'loss': 1.3434, 'learning_rate': 1.6800000000000002e-06, 'epoch': 4.0}
+ 80%|########  | 84/105 [00:23<00:05,  4.19it/s]The following columns in the evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, id, label_class, __index_level_0__. If text, id, label_class, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 72
+  Batch size = 8
+
+  0%|          | 0/9 [00:00<?, ?it/s][A
+ 33%|###3      | 3/9 [00:00<00:00, 20.03it/s][A
+ 67%|######6   | 6/9 [00:00<00:00, 15.60it/s][A
+ 89%|########8 | 8/9 [00:00<00:00, 15.52it/s][A                                                {'eval_loss': 1.2879656553268433, 'eval_precision': 0.25297619047619047, 'eval_recall': 0.3740808823529412, 'eval_accuracy': 0.375, 'eval_f1': 0.2724180581323438, 'eval_runtime': 0.6629, 'eval_samples_per_second': 108.606, 'eval_steps_per_second': 13.576, 'epoch': 4.0}
+                                             [A
+ 80%|########  | 84/105 [00:23<00:05,  4.19it/s]
+100%|##########| 9/9 [00:00<00:00, 15.52it/s][A
+                                             [A 81%|########  | 85/105 [00:24<00:08,  2.28it/s] 82%|########1 | 86/105 [00:24<00:07,  2.64it/s] 83%|########2 | 87/105 [00:24<00:06,  2.98it/s] 84%|########3 | 88/105 [00:24<00:05,  3.26it/s] 85%|########4 | 89/105 [00:24<00:04,  3.51it/s] 86%|########5 | 90/105 [00:25<00:04,  3.67it/s] 87%|########6 | 91/105 [00:25<00:03,  3.82it/s] 88%|########7 | 92/105 [00:25<00:03,  3.88it/s] 89%|########8 | 93/105 [00:25<00:03,  3.92it/s] 90%|########9 | 94/105 [00:26<00:02,  3.97it/s] 90%|######### | 95/105 [00:26<00:02,  4.03it/s] 91%|#########1| 96/105 [00:26<00:02,  4.09it/s] 92%|#########2| 97/105 [00:26<00:01,  4.10it/s] 93%|#########3| 98/105 [00:27<00:01,  4.14it/s] 94%|#########4| 99/105 [00:27<00:01,  4.18it/s] 95%|#########5| 100/105 [00:27<00:01,  4.20it/s] 96%|#########6| 101/105 [00:27<00:00,  4.18it/s] 97%|#########7| 102/105 [00:28<00:00,  4.17it/s] 98%|#########8| 103/105 [00:28<00:00,  4.12it/s] 99%|#########9| 104/105 [00:28<00:00,  4.13it/s]100%|##########| 105/105 [00:28<00:00,  4.13it/s]                                                 100%|##########| 105/105 [00:28<00:00,  4.13it/s]The following columns in the evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, id, label_class, __index_level_0__. If text, id, label_class, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+{'loss': 1.2992, 'learning_rate': 2.1000000000000002e-06, 'epoch': 5.0}
+***** Running Evaluation *****
+  Num examples = 72
+  Batch size = 8
+
+  0%|          | 0/9 [00:00<?, ?it/s][A
+ 33%|###3      | 3/9 [00:00<00:00, 20.52it/s][A
+ 67%|######6   | 6/9 [00:00<00:00, 15.80it/s][A
+ 89%|########8 | 8/9 [00:00<00:00, 15.25it/s][A                                                 {'eval_loss': 1.217094898223877, 'eval_precision': 0.4469047619047619, 'eval_recall': 0.5439338235294118, 'eval_accuracy': 0.5416666666666666, 'eval_f1': 0.47019649820322656, 'eval_runtime': 0.6553, 'eval_samples_per_second': 109.869, 'eval_steps_per_second': 13.734, 'epoch': 5.0}
+                                             [A
+100%|##########| 105/105 [00:29<00:00,  4.13it/s]
+100%|##########| 9/9 [00:00<00:00, 15.25it/s][A
+                                             [A
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+{'train_runtime': 29.5246, 'train_samples_per_second': 28.451, 'train_steps_per_second': 3.556, 'train_loss': 1.3595430283319383, 'epoch': 5.0}                                                 100%|##########| 105/105 [00:29<00:00,  4.13it/s]
+100%|##########| 105/105 [00:29<00:00,  3.56it/s]
+The following columns in the evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, id, label_class, __index_level_0__. If text, id, label_class, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 72
+  Batch size = 8
+  0%|          | 0/9 [00:00<?, ?it/s] 33%|###3      | 3/9 [00:00<00:00, 20.62it/s] 67%|######6   | 6/9 [00:00<00:00, 16.12it/s] 89%|########8 | 8/9 [00:00<00:00, 14.75it/s]100%|##########| 9/9 [00:00<00:00, 14.95it/s]
+INFO: [root] ***** Final Eval *****
+ {'eval_loss': 1.217094898223877, 'eval_precision': 0.4469047619047619, 'eval_recall': 0.5439338235294118, 'eval_accuracy': 0.5416666666666666, 'eval_f1': 0.47019649820322656, 'eval_runtime': 0.6622, 'eval_samples_per_second': 108.733, 'eval_steps_per_second': 13.592, 'epoch': 5.0}
+Saving model checkpoint to C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model
+Configuration saved in C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model\config.json
+Model weights saved in C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model\pytorch_model.bin
+tokenizer config file saved in C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model\tokenizer_config.json
+Special tokens file saved in C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model\special_tokens_map.json

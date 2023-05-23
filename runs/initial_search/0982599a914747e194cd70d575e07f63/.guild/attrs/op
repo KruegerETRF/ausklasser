@@ -1,0 +1,31 @@
+delete-on-success: false
+deps:
+- config: 515f9fc66ef84f38abdddf2e38035ed6
+  location: C:\Users\Admin\Desktop\dev\kk\azb_klassifizierer\train_iter2
+  name: load-data
+  sources:
+  - operation: load-data
+    target-type: link
+flag-null-labels:
+  load-data: unspecified
+flags-extra: {}
+label-template: null
+op-cmd:
+  cmd-args:
+  - ${python_exe}
+  - -um
+  - guild.op_main
+  - train
+  - --
+  - __flag_args__
+  cmd-env:
+    FLAGS_DEST: args
+    GUILD_PLUGINS: ''
+    PROJECT_DIR: C:\Users\Admin\Desktop\dev\kk\azb_klassifizierer\train_iter2
+  cmd-flags:
+    load-data:
+      arg-skip: true
+  flags-dest: args
+output-scalars: []
+python-requires: null
+sourcecode-root: .guild\sourcecode

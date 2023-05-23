@@ -1,0 +1,118 @@
+# flags:
+# high level flags:
+# - binary or multiclass 
+# - text_length handling
+
+# data composition:
+# different sizes, ratios 
+
+# train
+# different models
+
+# test
+
+load-data:
+  main: load_data
+  description: Loads and processes the data for the train run. Flags are size, ratio, balance_strat and label_strat. 
+  flags-import: 
+    - size
+    - ratio
+    - balance_strat
+    - label_strat
+  flags-dest: args
+  requires:
+    - file: az_tk_data.csv
+      target-type: link
+    - file: test_data.csv
+      target-type: link
+  output-scalars: off
+  sourcecode:
+  - '*.py'
+  - '*yml'
+
+train:
+  main: train
+  description: Trains the model on the data.
+  flags-import:
+    - model
+    - lr
+    - epochs
+    - warmup
+    - label_strat
+  requires:
+    operation: load-data
+    target-type: link
+  output-scalars: off
+  sourcecode:
+  - '*.py'
+  - '*yml'
+
+test:
+  main: test
+  requires:
+    - file: test_data.csv
+      target-type: link
+  flags-import:
+    - label_strat
+  output-scalars: off
+  sourcecode:
+  - '*.py'
+  - '*yml'
+
+
+
+pipeline: 
+  description: run full pipeline
+  flags:
+    size: [100,500,1000,5000,10000]
+    label_strat: ["multiclass","binary"]
+    balance_strat: ["oversample","downsample","no_balance"]
+    ratio: [1,0.7,0.5,0.3,0]
+    model: ["bert","gbert","distilbert","jobbert"]
+    lr: [0.0001,0.00001,0.000001]
+    epochs: [3,5,7]
+    warmup: [0,500]
+
+  steps:
+    - run: load-data
+      flags:
+        label_strat: ${label_strat}
+        balance_strat: ${balance_strat}
+        size: ${size}
+        ratio: ${ratio}
+    - run: train
+      flags:
+        label_strat: ${label_strat}
+        epochs: ${epochs}
+        lr: ${lr}
+        model: ${model}
+        warmup: ${warmup}
+    - run: test
+      flags:
+        label_strat: ${label_strat}
+  output-scalars:
+    #scalars for the entire data set
+    f1-for-all-data: 'all_f1: (\value)'
+    precision-for-all-data: 'all_precision: (\value)'
+    recall-for-all-data: 'all_recall: (\value)'
+    accuracy-for-all-data: 'all_accuracy: (\value)'
+    #scalars for tk data only
+    f1-for-tk-data: 'tk_f1: (\value)'
+    precision-for-tk-data: 'tk_precision: (\value)'
+    recall-for-tk-data: 'tk_recall: (\value)'
+    accuracy-for-tk-data: 'tk_accuracy: (\value)'
+    #scalars for ba data only
+    f1-for-ba-data: 'ba_f1: (\value)'
+    precision-for-ba-data: 'ba_precision: (\value)'
+    recall-for-ba-data: 'ba_recall: (\value)'
+    accuracy-for-ba-data: 'ba_accuracy: (\value)'
+    #scalars for long data
+    f1-for-long-texts: 'len_f1: (\value)'
+    precision-for-long-texts: 'len_precision: (\value)'
+    recall-for-long-texts: 'len_recall: (\value)'
+    accuracy-for-long-texts: 'len_accuracy: (\value)'
+  sourcecode:
+  - '*.py'
+  - '*yml'
+
+

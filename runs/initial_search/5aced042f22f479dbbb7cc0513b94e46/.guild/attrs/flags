@@ -1,0 +1,6 @@
+epochs: 5
+label_strat: binary
+load-data: 8ba8c5f4c7574f20be4a50e239b221d3
+lr: 1.0e-06
+model: jobbert
+warmup: 500

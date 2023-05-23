@@ -1,0 +1,8 @@
+load-data:
+  operation:load-data:
+    config: bba11d94021043789222ca69d237d4a9
+    paths:
+    - ..\bba11d94021043789222ca69d237d4a9\az_tk_data.csv
+    - ..\bba11d94021043789222ca69d237d4a9\input_data.csv
+    - ..\bba11d94021043789222ca69d237d4a9\test_data.csv
+    uri: operation:load-data

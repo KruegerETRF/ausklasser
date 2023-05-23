@@ -1,0 +1,13 @@
+- C:\Users\Admin\.conda\envs\aussklass\python.exe
+- -um
+- guild.op_main
+- load_data
+- --
+- --balance_strat
+- no_balance
+- --label_strat
+- binary
+- --ratio
+- '0.5'
+- --size
+- '500'

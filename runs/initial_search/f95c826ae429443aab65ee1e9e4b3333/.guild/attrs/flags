@@ -1,0 +1,6 @@
+epochs: 3
+label_strat: binary
+load-data: 449df8473b8c4dcf8c8f3f7a6a3c88a6
+lr: 0.0001
+model: bert
+warmup: 500

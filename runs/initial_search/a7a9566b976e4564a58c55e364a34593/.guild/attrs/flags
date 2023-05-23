@@ -1,0 +1,8 @@
+balance_strat: downsample
+epochs: 5
+label_strat: multiclass
+lr: 1.0e-05
+model: jobbert
+ratio: 1
+size: 10000
+warmup: 0

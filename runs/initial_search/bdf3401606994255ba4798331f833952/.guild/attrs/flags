@@ -1,0 +1,4 @@
+balance_strat: no_balance
+label_strat: multiclass
+ratio: 0.7
+size: 1000

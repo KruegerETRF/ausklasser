@@ -1,0 +1,6 @@
+epochs: 5
+label_strat: multiclass
+load-data: cd799f331cb8417997573b8829ffb839
+lr: 1.0e-05
+model: bert
+warmup: 500

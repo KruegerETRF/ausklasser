@@ -1,0 +1,6 @@
+epochs: 5
+label_strat: multiclass
+load-data: dcac13845bc34189a8d812736ee95213
+lr: 0.0001
+model: jobbert
+warmup: 0

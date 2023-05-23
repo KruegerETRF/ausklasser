@@ -1,0 +1,8 @@
+balance_strat: oversample
+epochs: 7
+label_strat: binary
+lr: 1.0e-05
+model: distilbert
+ratio: 0
+size: 500
+warmup: 500

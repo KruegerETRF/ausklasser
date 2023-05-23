@@ -1,0 +1,8 @@
+balance_strat: oversample
+epochs: 7
+label_strat: multiclass
+lr: 1.0e-06
+model: distilbert
+ratio: 0.7
+size: 100
+warmup: 500

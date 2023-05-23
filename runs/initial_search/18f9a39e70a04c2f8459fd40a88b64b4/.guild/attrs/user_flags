@@ -1,0 +1,4 @@
+balance_strat: oversample
+label_strat: binary
+ratio: 0.0
+size: 100

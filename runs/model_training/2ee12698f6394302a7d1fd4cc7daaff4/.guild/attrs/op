@@ -1,0 +1,33 @@
+delete-on-success: false
+deps: []
+flag-null-labels: {}
+flags-extra: {}
+label-template: null
+op-cmd:
+  cmd-args:
+  - ${python_exe}
+  - -um
+  - guild.steps_main
+  cmd-env:
+    GUILD_PLUGINS: ''
+    PROJECT_DIR: C:\Users\Admin\Desktop\dev\kk\azb_klassifizierer\search_3
+  flags-dest: args
+output-scalars:
+- accuracy-for-all-data: 'all_accuracy: (\value)'
+  accuracy-for-ba-data: 'ba_accuracy: (\value)'
+  accuracy-for-long-texts: 'len_accuracy: (\value)'
+  accuracy-for-tk-data: 'tk_accuracy: (\value)'
+  f1-for-all-data: 'all_f1: (\value)'
+  f1-for-ba-data: 'ba_f1: (\value)'
+  f1-for-long-texts: 'len_f1: (\value)'
+  f1-for-tk-data: 'tk_f1: (\value)'
+  precision-for-all-data: 'all_precision: (\value)'
+  precision-for-ba-data: 'ba_precision: (\value)'
+  precision-for-long-texts: 'len_precision: (\value)'
+  precision-for-tk-data: 'tk_precision: (\value)'
+  recall-for-all-data: 'all_recall: (\value)'
+  recall-for-ba-data: 'ba_recall: (\value)'
+  recall-for-long-texts: 'len_recall: (\value)'
+  recall-for-tk-data: 'tk_recall: (\value)'
+python-requires: null
+sourcecode-root: .guild\sourcecode

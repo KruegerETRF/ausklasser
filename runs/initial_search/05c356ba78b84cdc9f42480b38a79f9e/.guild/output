@@ -1,0 +1,51 @@
+INFO: [guild] running load-data: load-data balance_strat=downsample label_strat=multiclass ratio=1 size=500
+Resolving file:az_tk_data.csv
+Resolving file:test_data.csv
+INFO: [numexpr.utils] Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO: [numexpr.utils] NumExpr defaulting to 8 threads.
+INFO: [root] Final Distribution of Labels: Counter({0: 26, 1: 26, 3: 26}) 
+INFO: [guild] running train: train epochs=5 label_strat=multiclass lr=1.0e-06 model=distilbert warmup=500
+Resolving load-data
+Using run 16aa55aa6464466fa4f467597f67792a for load-data resource
+INFO: [numexpr.utils] Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO: [numexpr.utils] NumExpr defaulting to 8 threads.
+INFO: [root] num_labels: 3
+INFO: [root] Detected label names: ['Auszubildende', 'Verschiedenes', 'Führungskräfte', 'Fach- und Arbeitskräfte']
+Some weights of the model checkpoint at distilbert-base-german-cased were not used when initializing DistilBertForSequenceClassification: ['vocab_layer_norm.weight', 'vocab_projector.weight', 'vocab_projector.bias', 'vocab_transform.weight', 'vocab_layer_norm.bias', 'vocab_transform.bias']
+- This IS expected if you are initializing DistilBertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing DistilBertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-german-cased and are newly initialized: ['classifier.bias', 'classifier.weight', 'pre_classifier.bias', 'pre_classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  0%|          | 0/1 [00:00<?, ?ba/s]  0%|          | 0/1 [00:00<?, ?ba/s]
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--precision\4e7f439a346715f68500ce6f2be82bf3272abd3f20bdafd203a2c4f85b61dd5f (last modified on Mon Dec 19 10:49:43 2022) since it couldn't be found locally at evaluate-metric--precision, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--recall\e40e6e98d18ff3f210f4d0b26fa721bfaa80704b1fdf890fa551cfabf94fc185 (last modified on Mon Dec 19 10:49:44 2022) since it couldn't be found locally at evaluate-metric--recall, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--accuracy\f887c0aab52c2d38e1f8a215681126379eca617f96c447638f751434e8e65b14 (last modified on Mon Dec 19 10:49:46 2022) since it couldn't be found locally at evaluate-metric--accuracy, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--f1\0ca73f6cf92ef5a268320c697f7b940d1030f8471714bffdb6856c641b818974 (last modified on Mon Dec 19 10:49:47 2022) since it couldn't be found locally at evaluate-metric--f1, or remotely on the Hugging Face Hub.
+The following columns in the training set don't have a corresponding argument in `DistilBertForSequenceClassification.forward` and have been ignored: label_class, id, text, __index_level_0__. If label_class, id, text, __index_level_0__ are not expected by `DistilBertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running training *****
+  Num examples = 54
+  Num Epochs = 5
+  Instantaneous batch size per device = 8
+  Total train batch size (w. parallel, distributed & accumulation) = 8
+  Gradient Accumulation steps = 1
+  Total optimization steps = 35
+  Number of trainable parameters = 67008003
+  0%|          | 0/35 [00:00<?, ?it/s]You're using a DistilBertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\cuda\Loss.cu:242: block: [0,0,0], thread: [1,0,0] Assertion `t >= 0 && t < n_classes` failed.
+C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\cuda\Loss.cu:242: block: [0,0,0], thread: [6,0,0] Assertion `t >= 0 && t < n_classes` failed.
+C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\cuda\Loss.cu:242: block: [0,0,0], thread: [7,0,0] Assertion `t >= 0 && t < n_classes` failed.
+Traceback (most recent call last):
+  File "C:\Users\Admin\.conda\envs\aussklass\.guild\runs\e03df3fed83244d9b503c1ff8cb70545\.guild\sourcecode\train.py", line 113, in <module>
+    trainer.train()
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\transformers\trainer.py", line 1501, in train
+    return inner_training_loop(
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\transformers\trainer.py", line 1749, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\transformers\trainer.py", line 2526, in training_step
+    loss.backward()
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\torch\_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "C:\Users\Admin\.conda\envs\aussklass\lib\site-packages\torch\autograd\__init__.py", line 197, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+  0%|          | 0/35 [00:00<?, ?it/s]

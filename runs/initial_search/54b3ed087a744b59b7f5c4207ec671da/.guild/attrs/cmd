@@ -1,0 +1,15 @@
+- C:\Users\Admin\.conda\envs\aussklass\python.exe
+- -um
+- guild.op_main
+- train
+- --
+- --epochs
+- '5'
+- --label_strat
+- binary
+- --lr
+- '1e-06'
+- --model
+- bert
+- --warmup
+- '0'

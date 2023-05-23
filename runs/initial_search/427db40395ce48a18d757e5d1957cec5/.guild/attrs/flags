@@ -1,0 +1,6 @@
+epochs: 5
+label_strat: multiclass
+load-data: 069f4c82977a491bb51e4d60d83c8943
+lr: 1.0e-05
+model: distilbert
+warmup: 0

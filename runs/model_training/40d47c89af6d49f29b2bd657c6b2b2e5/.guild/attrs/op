@@ -1,0 +1,31 @@
+delete-on-success: false
+deps:
+- location: C:\Users\Admin\Desktop\dev\kk\azb_klassifizierer\search_3
+  name: file:az_tk_data.csv
+  sources:
+  - file: az_tk_data.csv
+    target-type: link
+- location: C:\Users\Admin\Desktop\dev\kk\azb_klassifizierer\search_3
+  name: file:test_data.csv
+  sources:
+  - file: test_data.csv
+    target-type: link
+flag-null-labels: {}
+flags-extra: {}
+label-template: null
+op-cmd:
+  cmd-args:
+  - ${python_exe}
+  - -um
+  - guild.op_main
+  - load_data
+  - --
+  - __flag_args__
+  cmd-env:
+    FLAGS_DEST: args
+    GUILD_PLUGINS: ''
+    PROJECT_DIR: C:\Users\Admin\Desktop\dev\kk\azb_klassifizierer\search_3
+  flags-dest: args
+output-scalars: []
+python-requires: null
+sourcecode-root: .guild\sourcecode

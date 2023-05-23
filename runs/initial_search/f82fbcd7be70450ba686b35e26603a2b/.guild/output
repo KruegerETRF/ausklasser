@@ -1,0 +1,147 @@
+INFO: [guild] running load-data: load-data balance_strat=downsample label_strat=binary ratio=0.3 size=100
+Resolving file:az_tk_data.csv
+Resolving file:test_data.csv
+INFO: [numexpr.utils] Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO: [numexpr.utils] NumExpr defaulting to 8 threads.
+INFO: [root] Final Distribution of Labels: Counter({0: 12, 1: 12}) 
+INFO: [guild] running train: train epochs=7 label_strat=binary lr=1.0e-05 model=distilbert warmup=500
+Resolving load-data
+Using run fea526ff28e645cfac46b07595cc8fde for load-data resource
+INFO: [numexpr.utils] Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO: [numexpr.utils] NumExpr defaulting to 8 threads.
+INFO: [root] num_labels: 2
+INFO: [root] Detected label names: ['Auszubildende', 'Sonstige Arbeitnehmer']
+Some weights of the model checkpoint at distilbert-base-german-cased were not used when initializing DistilBertForSequenceClassification: ['vocab_layer_norm.weight', 'vocab_projector.bias', 'vocab_layer_norm.bias', 'vocab_projector.weight', 'vocab_transform.bias', 'vocab_transform.weight']
+- This IS expected if you are initializing DistilBertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing DistilBertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of DistilBertForSequenceClassification were not initialized from the model checkpoint at distilbert-base-german-cased and are newly initialized: ['pre_classifier.weight', 'classifier.weight', 'pre_classifier.bias', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  0%|          | 0/1 [00:00<?, ?ba/s]  0%|          | 0/1 [00:00<?, ?ba/s]
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--precision\4e7f439a346715f68500ce6f2be82bf3272abd3f20bdafd203a2c4f85b61dd5f (last modified on Mon Dec 19 10:49:43 2022) since it couldn't be found locally at evaluate-metric--precision, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--recall\e40e6e98d18ff3f210f4d0b26fa721bfaa80704b1fdf890fa551cfabf94fc185 (last modified on Mon Dec 19 10:49:44 2022) since it couldn't be found locally at evaluate-metric--recall, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--accuracy\f887c0aab52c2d38e1f8a215681126379eca617f96c447638f751434e8e65b14 (last modified on Mon Dec 19 10:49:46 2022) since it couldn't be found locally at evaluate-metric--accuracy, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--f1\0ca73f6cf92ef5a268320c697f7b940d1030f8471714bffdb6856c641b818974 (last modified on Mon Dec 19 10:49:47 2022) since it couldn't be found locally at evaluate-metric--f1, or remotely on the Hugging Face Hub.
+The following columns in the training set don't have a corresponding argument in `DistilBertForSequenceClassification.forward` and have been ignored: __index_level_0__, text, id, label_class. If __index_level_0__, text, id, label_class are not expected by `DistilBertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running training *****
+  Num examples = 16
+  Num Epochs = 7
+  Instantaneous batch size per device = 8
+  Total train batch size (w. parallel, distributed & accumulation) = 8
+  Gradient Accumulation steps = 1
+  Total optimization steps = 14
+  Number of trainable parameters = 67007234
+  0%|          | 0/14 [00:00<?, ?it/s]You're using a DistilBertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+  7%|7         | 1/14 [00:00<00:06,  2.14it/s] 14%|#4        | 2/14 [00:00<00:03,  3.40it/s]{'loss': 0.6837, 'learning_rate': 4e-08, 'epoch': 1.0}                                              
+ 14%|#4        | 2/14 [00:00<00:03,  3.40it/s]The following columns in the evaluation set don't have a corresponding argument in `DistilBertForSequenceClassification.forward` and have been ignored: __index_level_0__, text, id, label_class. If __index_level_0__, text, id, label_class are not expected by `DistilBertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 8
+  Batch size = 8
+
+  0%|          | 0/1 [00:00<?, ?it/s][A                                              
+                                     [A 14%|#4        | 2/14 [00:00<00:03,  3.40it/s]
+100%|##########| 1/1 [00:00<00:00, 62.32it/s][A{'eval_loss': 0.6844256520271301, 'eval_precision': 0.6, 'eval_recall': 0.75, 'eval_accuracy': 0.625, 'eval_f1': 0.6666666666666665, 'eval_runtime': 0.0629, 'eval_samples_per_second': 127.258, 'eval_steps_per_second': 15.907, 'epoch': 1.0}
+                                             [A
+ 21%|##1       | 3/14 [00:00<00:02,  4.19it/s] 29%|##8       | 4/14 [00:00<00:01,  5.16it/s]                                               29%|##8       | 4/14 [00:00<00:01,  5.16it/s]{'loss': 0.6644, 'learning_rate': 8e-08, 'epoch': 2.0}
+The following columns in the evaluation set don't have a corresponding argument in `DistilBertForSequenceClassification.forward` and have been ignored: __index_level_0__, text, id, label_class. If __index_level_0__, text, id, label_class are not expected by `DistilBertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 8
+  Batch size = 8
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+                                     [A                                              
+{'eval_loss': 0.684399425983429, 'eval_precision': 0.6, 'eval_recall': 0.75, 'eval_accuracy': 0.625, 'eval_f1': 0.6666666666666665, 'eval_runtime': 0.0537, 'eval_samples_per_second': 148.916, 'eval_steps_per_second': 18.614, 'epoch': 2.0}
+100%|##########| 1/1 [00:00<00:00, 87.82it/s][A 29%|##8       | 4/14 [00:01<00:01,  5.16it/s]
+                                             [A 36%|###5      | 5/14 [00:01<00:01,  5.38it/s] 43%|####2     | 6/14 [00:01<00:01,  6.05it/s]                                              {'loss': 0.6693, 'learning_rate': 1.2000000000000002e-07, 'epoch': 3.0}
+ 43%|####2     | 6/14 [00:01<00:01,  6.05it/s]The following columns in the evaluation set don't have a corresponding argument in `DistilBertForSequenceClassification.forward` and have been ignored: __index_level_0__, text, id, label_class. If __index_level_0__, text, id, label_class are not expected by `DistilBertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 8
+  Batch size = 8
+
+  0%|          | 0/1 [00:00<?, ?it/s][A                                              
+                                     [A{'eval_loss': 0.684348464012146, 'eval_precision': 0.6, 'eval_recall': 0.75, 'eval_accuracy': 0.625, 'eval_f1': 0.6666666666666665, 'eval_runtime': 0.0469, 'eval_samples_per_second': 170.651, 'eval_steps_per_second': 21.331, 'epoch': 3.0}
+ 43%|####2     | 6/14 [00:01<00:01,  6.05it/s]
+100%|##########| 1/1 [00:00<00:00, 63.97it/s][A
+                                             [A 50%|#####     | 7/14 [00:01<00:01,  5.98it/s] 57%|#####7    | 8/14 [00:01<00:00,  6.50it/s]{'loss': 0.6836, 'learning_rate': 1.6e-07, 'epoch': 4.0}
+                                               57%|#####7    | 8/14 [00:01<00:00,  6.50it/s]The following columns in the evaluation set don't have a corresponding argument in `DistilBertForSequenceClassification.forward` and have been ignored: __index_level_0__, text, id, label_class. If __index_level_0__, text, id, label_class are not expected by `DistilBertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 8
+  Batch size = 8
+
+  0%|          | 0/1 [00:00<?, ?it/s][A                                              
+                                     [A{'eval_loss': 0.6842877864837646, 'eval_precision': 0.6, 'eval_recall': 0.75, 'eval_accuracy': 0.625, 'eval_f1': 0.6666666666666665, 'eval_runtime': 0.0477, 'eval_samples_per_second': 167.756, 'eval_steps_per_second': 20.97, 'epoch': 4.0}
+ 57%|#####7    | 8/14 [00:01<00:00,  6.50it/s]
+100%|##########| 1/1 [00:00<00:00, 63.70it/s][A
+                                             [A 64%|######4   | 9/14 [00:01<00:00,  6.26it/s] 71%|#######1  | 10/14 [00:01<00:00,  6.93it/s]                                               {'loss': 0.6714, 'learning_rate': 2.0000000000000002e-07, 'epoch': 5.0}
+ 71%|#######1  | 10/14 [00:01<00:00,  6.93it/s]The following columns in the evaluation set don't have a corresponding argument in `DistilBertForSequenceClassification.forward` and have been ignored: __index_level_0__, text, id, label_class. If __index_level_0__, text, id, label_class are not expected by `DistilBertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 8
+  Batch size = 8
+
+  0%|          | 0/1 [00:00<?, ?it/s][A                                               
+                                     [A{'eval_loss': 0.6842116713523865, 'eval_precision': 0.6, 'eval_recall': 0.75, 'eval_accuracy': 0.625, 'eval_f1': 0.6666666666666665, 'eval_runtime': 0.0469, 'eval_samples_per_second': 170.688, 'eval_steps_per_second': 21.336, 'epoch': 5.0} 71%|#######1  | 10/14 [00:01<00:00,  6.93it/s]
+100%|##########| 1/1 [00:00<00:00, 63.94it/s][A
+
+                                             [A 79%|#######8  | 11/14 [00:01<00:00,  6.55it/s] 86%|########5 | 12/14 [00:02<00:00,  7.17it/s]{'loss': 0.6726, 'learning_rate': 2.4000000000000003e-07, 'epoch': 6.0}
+                                                86%|########5 | 12/14 [00:02<00:00,  7.17it/s]The following columns in the evaluation set don't have a corresponding argument in `DistilBertForSequenceClassification.forward` and have been ignored: __index_level_0__, text, id, label_class. If __index_level_0__, text, id, label_class are not expected by `DistilBertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 8
+  Batch size = 8
+
+  0%|          | 0/1 [00:00<?, ?it/s][A                                               
+                                     [A 86%|########5 | 12/14 [00:02<00:00,  7.17it/s]{'eval_loss': 0.6841147541999817, 'eval_precision': 0.6, 'eval_recall': 0.75, 'eval_accuracy': 0.625, 'eval_f1': 0.6666666666666665, 'eval_runtime': 0.0469, 'eval_samples_per_second': 170.681, 'eval_steps_per_second': 21.335, 'epoch': 6.0}
+
+100%|##########| 1/1 [00:00<00:00, 64.03it/s][A
+                                             [A 93%|#########2| 13/14 [00:02<00:00,  6.69it/s]100%|##########| 14/14 [00:02<00:00,  7.04it/s]{'loss': 0.6935, 'learning_rate': 2.8e-07, 'epoch': 7.0}
+                                               100%|##########| 14/14 [00:02<00:00,  7.04it/s]The following columns in the evaluation set don't have a corresponding argument in `DistilBertForSequenceClassification.forward` and have been ignored: __index_level_0__, text, id, label_class. If __index_level_0__, text, id, label_class are not expected by `DistilBertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 8
+  Batch size = 8
+
+  0%|          | 0/1 [00:00<?, ?it/s][A                                               {'eval_loss': 0.6840206980705261, 'eval_precision': 0.6, 'eval_recall': 0.75, 'eval_accuracy': 0.625, 'eval_f1': 0.6666666666666665, 'eval_runtime': 0.0469, 'eval_samples_per_second': 170.655, 'eval_steps_per_second': 21.332, 'epoch': 7.0}
+
+                                     [A100%|##########| 14/14 [00:02<00:00,  7.04it/s]
+100%|##########| 1/1 [00:00<00:00, 63.99it/s][A
+                                             [A
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                               {'train_runtime': 2.471, 'train_samples_per_second': 45.326, 'train_steps_per_second': 5.666, 'train_loss': 0.6769336121422904, 'epoch': 7.0}100%|##########| 14/14 [00:02<00:00,  7.04it/s]
+100%|##########| 14/14 [00:02<00:00,  5.70it/s]
+The following columns in the evaluation set don't have a corresponding argument in `DistilBertForSequenceClassification.forward` and have been ignored: __index_level_0__, text, id, label_class. If __index_level_0__, text, id, label_class are not expected by `DistilBertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 8
+  Batch size = 8
+  0%|          | 0/1 [00:00<?, ?it/s]100%|##########| 1/1 [00:00<00:00, 64.00it/s]
+INFO: [root] ***** Final Eval *****
+ {'eval_loss': 0.6840206980705261, 'eval_precision': 0.6, 'eval_recall': 0.75, 'eval_accuracy': 0.625, 'eval_f1': 0.6666666666666665, 'eval_runtime': 0.0469, 'eval_samples_per_second': 170.683, 'eval_steps_per_second': 21.335, 'epoch': 7.0}
+Saving model checkpoint to C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model
+Configuration saved in C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model\config.json
+Model weights saved in C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model\pytorch_model.bin
+tokenizer config file saved in C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model\tokenizer_config.json
+Special tokens file saved in C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model\special_tokens_map.json
+INFO: [guild] running test: test label_strat=binary
+Resolving file:test_data.csv
+INFO: [numexpr.utils] Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO: [numexpr.utils] NumExpr defaulting to 8 threads.
+INFO: [root] Detected label names: ['Auszubildende', 'Sonstige Arbeitnehmer']
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--precision\4e7f439a346715f68500ce6f2be82bf3272abd3f20bdafd203a2c4f85b61dd5f (last modified on Mon Dec 19 10:49:43 2022) since it couldn't be found locally at evaluate-metric--precision, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--recall\e40e6e98d18ff3f210f4d0b26fa721bfaa80704b1fdf890fa551cfabf94fc185 (last modified on Mon Dec 19 10:49:44 2022) since it couldn't be found locally at evaluate-metric--recall, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--accuracy\f887c0aab52c2d38e1f8a215681126379eca617f96c447638f751434e8e65b14 (last modified on Mon Dec 19 10:49:46 2022) since it couldn't be found locally at evaluate-metric--accuracy, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--f1\0ca73f6cf92ef5a268320c697f7b940d1030f8471714bffdb6856c641b818974 (last modified on Mon Dec 19 10:49:47 2022) since it couldn't be found locally at evaluate-metric--f1, or remotely on the Hugging Face Hub.
+all_f1: 0.4666666666666667
+all_recall: 0.35
+all_precision: 0.7
+all_accuracy: 0.6
+tk_f1: 0.4666666666666667
+tk_recall: 0.35
+tk_precision: 0.7
+tk_accuracy: 0.6
+ba_f1: 0.3448275862068966
+ba_recall: 0.25
+ba_precision: 0.5555555555555556
+ba_accuracy: 0.525
+len_f1: 0.7272727272727272
+len_recall: 0.6666666666666666
+len_precision: 0.8
+len_accuracy: 0.76

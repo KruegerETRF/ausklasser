@@ -1,0 +1,6 @@
+epochs: 7
+label_strat: binary
+load-data: 6d8d0645c1294351bd0ff15534246c21
+lr: 1.0e-06
+model: gbert
+warmup: 500

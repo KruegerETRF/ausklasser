@@ -1,0 +1,8 @@
+balance_strat: no_balance
+epochs: 3
+label_strat: multiclass
+lr: 1.0e-05
+model: jobbert
+ratio: 0.7
+size: 100
+warmup: 0

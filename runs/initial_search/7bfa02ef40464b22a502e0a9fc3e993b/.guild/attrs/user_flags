@@ -1,0 +1,5 @@
+epochs: 7
+label_strat: multiclass
+lr: 0.0001
+model: distilbert
+warmup: 0

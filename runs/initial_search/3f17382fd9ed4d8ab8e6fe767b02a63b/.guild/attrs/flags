@@ -1,0 +1,4 @@
+balance_strat: oversample
+label_strat: multiclass
+ratio: 1.0
+size: 1000

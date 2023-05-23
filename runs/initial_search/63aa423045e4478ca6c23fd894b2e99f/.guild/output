@@ -1,0 +1,205 @@
+INFO: [guild] running load-data: load-data balance_strat=oversample label_strat=binary ratio=0.7 size=500
+Resolving file:az_tk_data.csv
+Resolving file:test_data.csv
+INFO: [numexpr.utils] Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO: [numexpr.utils] NumExpr defaulting to 8 threads.
+INFO: [root] Final Distribution of Labels: Counter({0: 440, 1: 440}) 
+INFO: [guild] running train: train epochs=5 label_strat=binary lr=1.0e-05 model=gbert warmup=0
+Resolving load-data
+Using run 9f6daa4d17fe41e285f43ab2cfc4f751 for load-data resource
+INFO: [numexpr.utils] Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO: [numexpr.utils] NumExpr defaulting to 8 threads.
+INFO: [root] num_labels: 2
+INFO: [root] Detected label names: ['Auszubildende', 'Sonstige Arbeitnehmer']
+Some weights of the model checkpoint at bert-base-german-cased were not used when initializing BertForSequenceClassification: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-german-cased and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  0%|          | 0/1 [00:00<?, ?ba/s]  0%|          | 0/1 [00:00<?, ?ba/s]
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--precision\4e7f439a346715f68500ce6f2be82bf3272abd3f20bdafd203a2c4f85b61dd5f (last modified on Mon Dec 19 10:49:43 2022) since it couldn't be found locally at evaluate-metric--precision, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--recall\e40e6e98d18ff3f210f4d0b26fa721bfaa80704b1fdf890fa551cfabf94fc185 (last modified on Mon Dec 19 10:49:44 2022) since it couldn't be found locally at evaluate-metric--recall, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--accuracy\f887c0aab52c2d38e1f8a215681126379eca617f96c447638f751434e8e65b14 (last modified on Mon Dec 19 10:49:46 2022) since it couldn't be found locally at evaluate-metric--accuracy, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--f1\0ca73f6cf92ef5a268320c697f7b940d1030f8471714bffdb6856c641b818974 (last modified on Mon Dec 19 10:49:47 2022) since it couldn't be found locally at evaluate-metric--f1, or remotely on the Hugging Face Hub.
+The following columns in the training set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, label_class, id, __index_level_0__. If text, label_class, id, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running training *****
+  Num examples = 616
+  Num Epochs = 5
+  Instantaneous batch size per device = 8
+  Total train batch size (w. parallel, distributed & accumulation) = 8
+  Gradient Accumulation steps = 1
+  Total optimization steps = 385
+  Number of trainable parameters = 109082882
+  0%|          | 0/385 [00:00<?, ?it/s]You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+  0%|          | 1/385 [00:00<05:17,  1.21it/s]  1%|          | 2/385 [00:01<03:03,  2.09it/s]  1%|          | 3/385 [00:01<02:20,  2.72it/s]  1%|1         | 4/385 [00:01<01:57,  3.24it/s]  1%|1         | 5/385 [00:01<01:49,  3.48it/s]  2%|1         | 6/385 [00:02<01:42,  3.71it/s]  2%|1         | 7/385 [00:02<01:37,  3.87it/s]  2%|2         | 8/385 [00:02<01:34,  3.99it/s]  2%|2         | 9/385 [00:02<01:30,  4.15it/s]  3%|2         | 10/385 [00:02<01:29,  4.18it/s]  3%|2         | 11/385 [00:03<01:28,  4.21it/s]  3%|3         | 12/385 [00:03<01:28,  4.23it/s]  3%|3         | 13/385 [00:03<01:26,  4.33it/s]  4%|3         | 14/385 [00:03<01:26,  4.31it/s]  4%|3         | 15/385 [00:04<01:24,  4.38it/s]  4%|4         | 16/385 [00:04<01:26,  4.26it/s]  4%|4         | 17/385 [00:04<01:26,  4.26it/s]  5%|4         | 18/385 [00:04<01:24,  4.35it/s]  5%|4         | 19/385 [00:05<01:24,  4.32it/s]  5%|5         | 20/385 [00:05<01:24,  4.31it/s]  5%|5         | 21/385 [00:05<01:24,  4.29it/s]  6%|5         | 22/385 [00:05<01:24,  4.28it/s]  6%|5         | 23/385 [00:05<01:24,  4.27it/s]  6%|6         | 24/385 [00:06<01:24,  4.27it/s]  6%|6         | 25/385 [00:06<01:24,  4.27it/s]  7%|6         | 26/385 [00:06<01:24,  4.27it/s]  7%|7         | 27/385 [00:06<01:22,  4.35it/s]  7%|7         | 28/385 [00:07<01:22,  4.33it/s]  8%|7         | 29/385 [00:07<01:22,  4.31it/s]  8%|7         | 30/385 [00:07<01:22,  4.29it/s]  8%|8         | 31/385 [00:07<01:22,  4.29it/s]  8%|8         | 32/385 [00:08<01:20,  4.37it/s]  9%|8         | 33/385 [00:08<01:22,  4.25it/s]  9%|8         | 34/385 [00:08<01:22,  4.26it/s]  9%|9         | 35/385 [00:08<01:22,  4.26it/s]  9%|9         | 36/385 [00:08<01:21,  4.26it/s] 10%|9         | 37/385 [00:09<01:21,  4.26it/s] 10%|9         | 38/385 [00:09<01:21,  4.26it/s] 10%|#         | 39/385 [00:09<01:21,  4.26it/s] 10%|#         | 40/385 [00:09<01:22,  4.18it/s] 11%|#         | 41/385 [00:10<01:21,  4.21it/s] 11%|#         | 42/385 [00:10<01:21,  4.22it/s] 11%|#1        | 43/385 [00:10<01:20,  4.24it/s] 11%|#1        | 44/385 [00:10<01:20,  4.25it/s] 12%|#1        | 45/385 [00:11<01:19,  4.25it/s] 12%|#1        | 46/385 [00:11<01:19,  4.26it/s] 12%|#2        | 47/385 [00:11<01:19,  4.26it/s] 12%|#2        | 48/385 [00:11<01:19,  4.26it/s] 13%|#2        | 49/385 [00:12<01:18,  4.26it/s] 13%|#2        | 50/385 [00:12<01:18,  4.25it/s] 13%|#3        | 51/385 [00:12<01:17,  4.34it/s] 14%|#3        | 52/385 [00:12<01:17,  4.32it/s] 14%|#3        | 53/385 [00:12<01:17,  4.29it/s] 14%|#4        | 54/385 [00:13<01:16,  4.35it/s] 14%|#4        | 55/385 [00:13<01:16,  4.31it/s] 15%|#4        | 56/385 [00:13<01:15,  4.37it/s] 15%|#4        | 57/385 [00:13<01:15,  4.32it/s] 15%|#5        | 58/385 [00:14<01:14,  4.38it/s] 15%|#5        | 59/385 [00:14<01:15,  4.33it/s] 16%|#5        | 60/385 [00:14<01:14,  4.39it/s] 16%|#5        | 61/385 [00:14<01:14,  4.33it/s] 16%|#6        | 62/385 [00:15<01:15,  4.30it/s] 16%|#6        | 63/385 [00:15<01:13,  4.36it/s] 17%|#6        | 64/385 [00:15<01:14,  4.31it/s] 17%|#6        | 65/385 [00:15<01:14,  4.29it/s] 17%|#7        | 66/385 [00:15<01:13,  4.35it/s] 17%|#7        | 67/385 [00:16<01:13,  4.31it/s] 18%|#7        | 68/385 [00:16<01:12,  4.37it/s] 18%|#7        | 69/385 [00:16<01:13,  4.32it/s] 18%|#8        | 70/385 [00:16<01:11,  4.38it/s] 18%|#8        | 71/385 [00:17<01:12,  4.33it/s] 19%|#8        | 72/385 [00:17<01:12,  4.30it/s] 19%|#8        | 73/385 [00:17<01:12,  4.29it/s] 19%|#9        | 74/385 [00:17<01:12,  4.28it/s] 19%|#9        | 75/385 [00:18<01:12,  4.28it/s] 20%|#9        | 76/385 [00:18<01:12,  4.27it/s] 20%|##        | 77/385 [00:18<01:12,  4.27it/s]{'loss': 0.3705, 'learning_rate': 8.000000000000001e-06, 'epoch': 1.0}                                                 20%|##        | 77/385 [00:18<01:12,  4.27it/s]
+The following columns in the evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, label_class, id, __index_level_0__. If text, label_class, id, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 264
+  Batch size = 8
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  9%|9         | 3/33 [00:00<00:01, 21.41it/s][A
+ 18%|#8        | 6/33 [00:00<00:01, 16.07it/s][A
+ 24%|##4       | 8/33 [00:00<00:01, 15.07it/s][A
+ 30%|###       | 10/33 [00:00<00:01, 14.41it/s][A
+ 36%|###6      | 12/33 [00:00<00:01, 14.35it/s][A
+ 42%|####2     | 14/33 [00:00<00:01, 14.31it/s][A
+ 48%|####8     | 16/33 [00:01<00:01, 14.28it/s][A
+ 55%|#####4    | 18/33 [00:01<00:01, 14.26it/s][A
+ 61%|######    | 20/33 [00:01<00:00, 13.78it/s][A
+ 67%|######6   | 22/33 [00:01<00:00, 13.91it/s][A
+ 73%|#######2  | 24/33 [00:01<00:00, 14.01it/s][A
+ 79%|#######8  | 26/33 [00:01<00:00, 14.07it/s][A
+ 85%|########4 | 28/33 [00:01<00:00, 14.10it/s][A
+ 91%|######### | 30/33 [00:02<00:00, 13.68it/s][A
+ 97%|#########6| 32/33 [00:02<00:00, 13.84it/s][A
+                                               [A                                                {'eval_loss': 0.04716784507036209, 'eval_precision': 1.0, 'eval_recall': 0.9852941176470589, 'eval_accuracy': 0.9924242424242424, 'eval_f1': 0.9925925925925926, 'eval_runtime': 2.3931, 'eval_samples_per_second': 110.317, 'eval_steps_per_second': 13.79, 'epoch': 1.0}
+
+100%|##########| 33/33 [00:02<00:00, 13.84it/s][A 20%|##        | 77/385 [00:20<01:12,  4.27it/s]
+                                               [A 20%|##        | 78/385 [00:21<04:52,  1.05it/s] 21%|##        | 79/385 [00:21<03:45,  1.36it/s] 21%|##        | 80/385 [00:21<02:58,  1.71it/s] 21%|##1       | 81/385 [00:21<02:26,  2.08it/s] 21%|##1       | 82/385 [00:22<02:03,  2.46it/s] 22%|##1       | 83/385 [00:22<01:47,  2.81it/s] 22%|##1       | 84/385 [00:22<01:36,  3.13it/s] 22%|##2       | 85/385 [00:22<01:28,  3.40it/s] 22%|##2       | 86/385 [00:23<01:22,  3.62it/s] 23%|##2       | 87/385 [00:23<01:18,  3.79it/s] 23%|##2       | 88/385 [00:23<01:15,  3.92it/s] 23%|##3       | 89/385 [00:23<01:13,  4.02it/s] 23%|##3       | 90/385 [00:23<01:12,  4.09it/s] 24%|##3       | 91/385 [00:24<01:10,  4.14it/s] 24%|##3       | 92/385 [00:24<01:10,  4.18it/s] 24%|##4       | 93/385 [00:24<01:09,  4.20it/s] 24%|##4       | 94/385 [00:24<01:08,  4.22it/s] 25%|##4       | 95/385 [00:25<01:08,  4.23it/s] 25%|##4       | 96/385 [00:25<01:08,  4.24it/s] 25%|##5       | 97/385 [00:25<01:07,  4.25it/s] 25%|##5       | 98/385 [00:25<01:07,  4.25it/s] 26%|##5       | 99/385 [00:26<01:07,  4.25it/s] 26%|##5       | 100/385 [00:26<01:06,  4.26it/s] 26%|##6       | 101/385 [00:26<01:06,  4.26it/s] 26%|##6       | 102/385 [00:26<01:06,  4.26it/s] 27%|##6       | 103/385 [00:27<01:06,  4.26it/s] 27%|##7       | 104/385 [00:27<01:05,  4.26it/s] 27%|##7       | 105/385 [00:27<01:04,  4.34it/s] 28%|##7       | 106/385 [00:27<01:04,  4.32it/s] 28%|##7       | 107/385 [00:27<01:04,  4.30it/s] 28%|##8       | 108/385 [00:28<01:04,  4.29it/s] 28%|##8       | 109/385 [00:28<01:04,  4.28it/s] 29%|##8       | 110/385 [00:28<01:04,  4.27it/s] 29%|##8       | 111/385 [00:28<01:04,  4.27it/s] 29%|##9       | 112/385 [00:29<01:03,  4.27it/s] 29%|##9       | 113/385 [00:29<01:02,  4.36it/s] 30%|##9       | 114/385 [00:29<01:02,  4.33it/s] 30%|##9       | 115/385 [00:29<01:02,  4.31it/s] 30%|###       | 116/385 [00:30<01:02,  4.29it/s] 30%|###       | 117/385 [00:30<01:02,  4.28it/s] 31%|###       | 118/385 [00:30<01:02,  4.28it/s] 31%|###       | 119/385 [00:30<01:00,  4.36it/s] 31%|###1      | 120/385 [00:30<01:01,  4.33it/s] 31%|###1      | 121/385 [00:31<01:01,  4.31it/s] 32%|###1      | 122/385 [00:31<01:00,  4.38it/s] 32%|###1      | 123/385 [00:31<01:00,  4.34it/s] 32%|###2      | 124/385 [00:31<01:00,  4.32it/s] 32%|###2      | 125/385 [00:32<01:00,  4.30it/s] 33%|###2      | 126/385 [00:32<00:59,  4.38it/s] 33%|###2      | 127/385 [00:32<00:59,  4.32it/s] 33%|###3      | 128/385 [00:32<00:58,  4.38it/s] 34%|###3      | 129/385 [00:33<00:59,  4.33it/s] 34%|###3      | 130/385 [00:33<00:58,  4.39it/s] 34%|###4      | 131/385 [00:33<00:58,  4.33it/s] 34%|###4      | 132/385 [00:33<00:58,  4.35it/s] 35%|###4      | 133/385 [00:33<00:58,  4.33it/s] 35%|###4      | 134/385 [00:34<00:57,  4.39it/s] 35%|###5      | 135/385 [00:34<00:57,  4.33it/s] 35%|###5      | 136/385 [00:34<00:56,  4.39it/s] 36%|###5      | 137/385 [00:34<00:57,  4.33it/s] 36%|###5      | 138/385 [00:35<00:56,  4.37it/s] 36%|###6      | 139/385 [00:35<00:56,  4.33it/s] 36%|###6      | 140/385 [00:35<00:55,  4.38it/s] 37%|###6      | 141/385 [00:35<00:56,  4.32it/s] 37%|###6      | 142/385 [00:36<00:55,  4.37it/s] 37%|###7      | 143/385 [00:36<00:55,  4.33it/s] 37%|###7      | 144/385 [00:36<00:56,  4.30it/s] 38%|###7      | 145/385 [00:36<00:55,  4.34it/s] 38%|###7      | 146/385 [00:36<00:55,  4.31it/s] 38%|###8      | 147/385 [00:37<00:54,  4.38it/s] 38%|###8      | 148/385 [00:37<00:54,  4.32it/s] 39%|###8      | 149/385 [00:37<00:53,  4.38it/s] 39%|###8      | 150/385 [00:37<00:54,  4.32it/s] 39%|###9      | 151/385 [00:38<00:54,  4.29it/s] 39%|###9      | 152/385 [00:38<00:53,  4.36it/s] 40%|###9      | 153/385 [00:38<00:53,  4.32it/s] 40%|####      | 154/385 [00:38<00:52,  4.38it/s]{'loss': 0.03, 'learning_rate': 6e-06, 'epoch': 2.0}
+                                                  40%|####      | 154/385 [00:38<00:52,  4.38it/s]The following columns in the evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, label_class, id, __index_level_0__. If text, label_class, id, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 264
+  Batch size = 8
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  9%|9         | 3/33 [00:00<00:01, 21.16it/s][A
+ 18%|#8        | 6/33 [00:00<00:01, 16.85it/s][A
+ 24%|##4       | 8/33 [00:00<00:01, 15.10it/s][A
+ 30%|###       | 10/33 [00:00<00:01, 14.78it/s][A
+ 36%|###6      | 12/33 [00:00<00:01, 14.59it/s][A
+ 42%|####2     | 14/33 [00:00<00:01, 14.45it/s][A
+ 48%|####8     | 16/33 [00:01<00:01, 13.88it/s][A
+ 55%|#####4    | 18/33 [00:01<00:01, 13.98it/s][A
+ 61%|######    | 20/33 [00:01<00:00, 14.05it/s][A
+ 67%|######6   | 22/33 [00:01<00:00, 14.10it/s][A
+ 73%|#######2  | 24/33 [00:01<00:00, 14.12it/s][A
+ 79%|#######8  | 26/33 [00:01<00:00, 13.68it/s][A
+ 85%|########4 | 28/33 [00:01<00:00, 13.81it/s][A
+ 91%|######### | 30/33 [00:02<00:00, 13.92it/s][A
+ 97%|#########6| 32/33 [00:02<00:00, 14.01it/s][A                                                 
+                                               [A{'eval_loss': 0.04570036754012108, 'eval_precision': 1.0, 'eval_recall': 0.9852941176470589, 'eval_accuracy': 0.9924242424242424, 'eval_f1': 0.9925925925925926, 'eval_runtime': 2.3892, 'eval_samples_per_second': 110.496, 'eval_steps_per_second': 13.812, 'epoch': 2.0}
+ 40%|####      | 154/385 [00:41<00:52,  4.38it/s]
+100%|##########| 33/33 [00:02<00:00, 14.01it/s][A
+                                               [A 40%|####      | 155/385 [00:41<03:38,  1.05it/s] 41%|####      | 156/385 [00:41<02:48,  1.36it/s] 41%|####      | 157/385 [00:41<02:13,  1.71it/s] 41%|####1     | 158/385 [00:42<01:47,  2.10it/s] 41%|####1     | 159/385 [00:42<01:31,  2.48it/s] 42%|####1     | 160/385 [00:42<01:19,  2.84it/s] 42%|####1     | 161/385 [00:42<01:11,  3.15it/s] 42%|####2     | 162/385 [00:43<01:05,  3.42it/s] 42%|####2     | 163/385 [00:43<01:01,  3.64it/s] 43%|####2     | 164/385 [00:43<00:57,  3.87it/s] 43%|####2     | 165/385 [00:43<00:56,  3.91it/s] 43%|####3     | 166/385 [00:43<00:54,  4.01it/s] 43%|####3     | 167/385 [00:44<00:53,  4.08it/s] 44%|####3     | 168/385 [00:44<00:52,  4.14it/s] 44%|####3     | 169/385 [00:44<00:51,  4.17it/s] 44%|####4     | 170/385 [00:44<00:51,  4.20it/s] 44%|####4     | 171/385 [00:45<00:50,  4.22it/s] 45%|####4     | 172/385 [00:45<00:50,  4.23it/s] 45%|####4     | 173/385 [00:45<00:49,  4.24it/s] 45%|####5     | 174/385 [00:45<00:49,  4.25it/s] 45%|####5     | 175/385 [00:46<00:49,  4.25it/s] 46%|####5     | 176/385 [00:46<00:49,  4.26it/s] 46%|####5     | 177/385 [00:46<00:48,  4.26it/s] 46%|####6     | 178/385 [00:46<00:48,  4.26it/s] 46%|####6     | 179/385 [00:47<00:48,  4.26it/s] 47%|####6     | 180/385 [00:47<00:48,  4.26it/s] 47%|####7     | 181/385 [00:47<00:47,  4.27it/s] 47%|####7     | 182/385 [00:47<00:47,  4.26it/s] 48%|####7     | 183/385 [00:47<00:47,  4.26it/s] 48%|####7     | 184/385 [00:48<00:47,  4.26it/s] 48%|####8     | 185/385 [00:48<00:46,  4.26it/s] 48%|####8     | 186/385 [00:48<00:46,  4.27it/s] 49%|####8     | 187/385 [00:48<00:46,  4.27it/s] 49%|####8     | 188/385 [00:49<00:46,  4.26it/s] 49%|####9     | 189/385 [00:49<00:45,  4.27it/s] 49%|####9     | 190/385 [00:49<00:45,  4.27it/s] 50%|####9     | 191/385 [00:49<00:45,  4.27it/s] 50%|####9     | 192/385 [00:50<00:45,  4.27it/s] 50%|#####     | 193/385 [00:50<00:44,  4.27it/s] 50%|#####     | 194/385 [00:50<00:44,  4.26it/s] 51%|#####     | 195/385 [00:50<00:44,  4.26it/s] 51%|#####     | 196/385 [00:51<00:44,  4.27it/s] 51%|#####1    | 197/385 [00:51<00:44,  4.27it/s] 51%|#####1    | 198/385 [00:51<00:43,  4.27it/s] 52%|#####1    | 199/385 [00:51<00:43,  4.27it/s] 52%|#####1    | 200/385 [00:51<00:43,  4.27it/s] 52%|#####2    | 201/385 [00:52<00:43,  4.27it/s] 52%|#####2    | 202/385 [00:52<00:42,  4.27it/s] 53%|#####2    | 203/385 [00:52<00:42,  4.27it/s] 53%|#####2    | 204/385 [00:52<00:42,  4.27it/s] 53%|#####3    | 205/385 [00:53<00:42,  4.27it/s] 54%|#####3    | 206/385 [00:53<00:41,  4.26it/s] 54%|#####3    | 207/385 [00:53<00:41,  4.27it/s] 54%|#####4    | 208/385 [00:53<00:41,  4.27it/s] 54%|#####4    | 209/385 [00:54<00:41,  4.27it/s] 55%|#####4    | 210/385 [00:54<00:41,  4.27it/s] 55%|#####4    | 211/385 [00:54<00:40,  4.27it/s] 55%|#####5    | 212/385 [00:54<00:40,  4.26it/s] 55%|#####5    | 213/385 [00:54<00:40,  4.27it/s] 56%|#####5    | 214/385 [00:55<00:40,  4.27it/s] 56%|#####5    | 215/385 [00:55<00:39,  4.26it/s] 56%|#####6    | 216/385 [00:55<00:39,  4.27it/s] 56%|#####6    | 217/385 [00:55<00:39,  4.26it/s] 57%|#####6    | 218/385 [00:56<00:39,  4.26it/s] 57%|#####6    | 219/385 [00:56<00:38,  4.26it/s] 57%|#####7    | 220/385 [00:56<00:38,  4.26it/s] 57%|#####7    | 221/385 [00:56<00:38,  4.26it/s] 58%|#####7    | 222/385 [00:57<00:38,  4.26it/s] 58%|#####7    | 223/385 [00:57<00:37,  4.26it/s] 58%|#####8    | 224/385 [00:57<00:37,  4.26it/s] 58%|#####8    | 225/385 [00:57<00:37,  4.27it/s] 59%|#####8    | 226/385 [00:58<00:37,  4.26it/s] 59%|#####8    | 227/385 [00:58<00:37,  4.26it/s] 59%|#####9    | 228/385 [00:58<00:36,  4.27it/s] 59%|#####9    | 229/385 [00:58<00:36,  4.26it/s] 60%|#####9    | 230/385 [00:58<00:36,  4.26it/s] 60%|######    | 231/385 [00:59<00:36,  4.27it/s]                                                 {'loss': 0.0015, 'learning_rate': 4.000000000000001e-06, 'epoch': 3.0} 60%|######    | 231/385 [00:59<00:36,  4.27it/s]
+The following columns in the evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, label_class, id, __index_level_0__. If text, label_class, id, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 264
+  Batch size = 8
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  9%|9         | 3/33 [00:00<00:01, 19.20it/s][A
+ 15%|#5        | 5/33 [00:00<00:01, 16.40it/s][A
+ 21%|##1       | 7/33 [00:00<00:01, 15.44it/s][A
+ 27%|##7       | 9/33 [00:00<00:01, 14.96it/s][A
+ 33%|###3      | 11/33 [00:00<00:01, 14.69it/s][A
+ 39%|###9      | 13/33 [00:00<00:01, 14.00it/s][A
+ 45%|####5     | 15/33 [00:01<00:01, 14.07it/s][A
+ 52%|#####1    | 17/33 [00:01<00:01, 14.12it/s][A
+ 58%|#####7    | 19/33 [00:01<00:01, 13.68it/s][A
+ 64%|######3   | 21/33 [00:01<00:00, 13.84it/s][A
+ 70%|######9   | 23/33 [00:01<00:00, 13.96it/s][A
+ 76%|#######5  | 25/33 [00:01<00:00, 14.04it/s][A
+ 82%|########1 | 27/33 [00:01<00:00, 13.64it/s][A
+ 88%|########7 | 29/33 [00:02<00:00, 13.81it/s][A
+ 94%|#########3| 31/33 [00:02<00:00, 13.91it/s][A
+100%|##########| 33/33 [00:02<00:00, 14.01it/s][A{'eval_loss': 0.026064401492476463, 'eval_precision': 1.0, 'eval_recall': 0.9926470588235294, 'eval_accuracy': 0.9962121212121212, 'eval_f1': 0.996309963099631, 'eval_runtime': 2.407, 'eval_samples_per_second': 109.681, 'eval_steps_per_second': 13.71, 'epoch': 3.0}                                                 
+                                               [A 60%|######    | 231/385 [01:01<00:36,  4.27it/s]
+100%|##########| 33/33 [00:02<00:00, 14.01it/s][A
+                                               [A
+ 60%|######    | 232/385 [01:01<02:26,  1.05it/s] 61%|######    | 233/385 [01:02<01:52,  1.35it/s] 61%|######    | 234/385 [01:02<01:28,  1.70it/s] 61%|######1   | 235/385 [01:02<01:12,  2.07it/s] 61%|######1   | 236/385 [01:02<01:00,  2.45it/s] 62%|######1   | 237/385 [01:03<00:52,  2.81it/s] 62%|######1   | 238/385 [01:03<00:46,  3.13it/s] 62%|######2   | 239/385 [01:03<00:42,  3.40it/s] 62%|######2   | 240/385 [01:03<00:40,  3.62it/s] 63%|######2   | 241/385 [01:03<00:37,  3.79it/s] 63%|######2   | 242/385 [01:04<00:36,  3.92it/s] 63%|######3   | 243/385 [01:04<00:35,  4.02it/s] 63%|######3   | 244/385 [01:04<00:34,  4.09it/s] 64%|######3   | 245/385 [01:04<00:33,  4.14it/s] 64%|######3   | 246/385 [01:05<00:33,  4.18it/s] 64%|######4   | 247/385 [01:05<00:32,  4.20it/s] 64%|######4   | 248/385 [01:05<00:32,  4.22it/s] 65%|######4   | 249/385 [01:05<00:32,  4.24it/s] 65%|######4   | 250/385 [01:06<00:31,  4.25it/s] 65%|######5   | 251/385 [01:06<00:31,  4.25it/s] 65%|######5   | 252/385 [01:06<00:31,  4.26it/s] 66%|######5   | 253/385 [01:06<00:30,  4.26it/s] 66%|######5   | 254/385 [01:07<00:30,  4.26it/s] 66%|######6   | 255/385 [01:07<00:30,  4.26it/s] 66%|######6   | 256/385 [01:07<00:30,  4.26it/s] 67%|######6   | 257/385 [01:07<00:30,  4.26it/s] 67%|######7   | 258/385 [01:07<00:29,  4.27it/s] 67%|######7   | 259/385 [01:08<00:29,  4.26it/s] 68%|######7   | 260/385 [01:08<00:29,  4.27it/s] 68%|######7   | 261/385 [01:08<00:29,  4.27it/s] 68%|######8   | 262/385 [01:08<00:28,  4.27it/s] 68%|######8   | 263/385 [01:09<00:28,  4.35it/s] 69%|######8   | 264/385 [01:09<00:28,  4.24it/s] 69%|######8   | 265/385 [01:09<00:28,  4.25it/s] 69%|######9   | 266/385 [01:09<00:27,  4.25it/s] 69%|######9   | 267/385 [01:10<00:27,  4.26it/s] 70%|######9   | 268/385 [01:10<00:27,  4.26it/s] 70%|######9   | 269/385 [01:10<00:27,  4.26it/s] 70%|#######   | 270/385 [01:10<00:26,  4.26it/s] 70%|#######   | 271/385 [01:10<00:26,  4.26it/s] 71%|#######   | 272/385 [01:11<00:26,  4.26it/s] 71%|#######   | 273/385 [01:11<00:26,  4.26it/s] 71%|#######1  | 274/385 [01:11<00:26,  4.27it/s] 71%|#######1  | 275/385 [01:11<00:25,  4.27it/s] 72%|#######1  | 276/385 [01:12<00:25,  4.35it/s] 72%|#######1  | 277/385 [01:12<00:24,  4.32it/s] 72%|#######2  | 278/385 [01:12<00:24,  4.31it/s] 72%|#######2  | 279/385 [01:12<00:24,  4.38it/s] 73%|#######2  | 280/385 [01:13<00:24,  4.35it/s] 73%|#######2  | 281/385 [01:13<00:24,  4.32it/s] 73%|#######3  | 282/385 [01:13<00:23,  4.30it/s] 74%|#######3  | 283/385 [01:13<00:23,  4.29it/s] 74%|#######3  | 284/385 [01:14<00:23,  4.28it/s] 74%|#######4  | 285/385 [01:14<00:22,  4.37it/s] 74%|#######4  | 286/385 [01:14<00:22,  4.34it/s] 75%|#######4  | 287/385 [01:14<00:22,  4.40it/s] 75%|#######4  | 288/385 [01:14<00:22,  4.36it/s] 75%|#######5  | 289/385 [01:15<00:22,  4.33it/s] 75%|#######5  | 290/385 [01:15<00:22,  4.31it/s] 76%|#######5  | 291/385 [01:15<00:21,  4.30it/s] 76%|#######5  | 292/385 [01:15<00:21,  4.29it/s] 76%|#######6  | 293/385 [01:16<00:21,  4.28it/s] 76%|#######6  | 294/385 [01:16<00:20,  4.37it/s] 77%|#######6  | 295/385 [01:16<00:20,  4.33it/s] 77%|#######6  | 296/385 [01:16<00:20,  4.40it/s] 77%|#######7  | 297/385 [01:16<00:20,  4.36it/s] 77%|#######7  | 298/385 [01:17<00:20,  4.33it/s] 78%|#######7  | 299/385 [01:17<00:19,  4.31it/s] 78%|#######7  | 300/385 [01:17<00:19,  4.30it/s] 78%|#######8  | 301/385 [01:17<00:19,  4.38it/s] 78%|#######8  | 302/385 [01:18<00:19,  4.34it/s] 79%|#######8  | 303/385 [01:18<00:18,  4.32it/s] 79%|#######8  | 304/385 [01:18<00:18,  4.30it/s] 79%|#######9  | 305/385 [01:18<00:18,  4.29it/s] 79%|#######9  | 306/385 [01:19<00:18,  4.37it/s] 80%|#######9  | 307/385 [01:19<00:18,  4.25it/s] 80%|########  | 308/385 [01:19<00:18,  4.25it/s]                                                 {'loss': 0.001, 'learning_rate': 2.0000000000000003e-06, 'epoch': 4.0}
+ 80%|########  | 308/385 [01:19<00:18,  4.25it/s]The following columns in the evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, label_class, id, __index_level_0__. If text, label_class, id, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 264
+  Batch size = 8
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  9%|9         | 3/33 [00:00<00:01, 19.13it/s][A
+ 15%|#5        | 5/33 [00:00<00:01, 16.37it/s][A
+ 21%|##1       | 7/33 [00:00<00:01, 15.41it/s][A
+ 27%|##7       | 9/33 [00:00<00:01, 14.95it/s][A
+ 33%|###3      | 11/33 [00:00<00:01, 14.13it/s][A
+ 39%|###9      | 13/33 [00:00<00:01, 14.15it/s][A
+ 45%|####5     | 15/33 [00:01<00:01, 14.17it/s][A
+ 52%|#####1    | 17/33 [00:01<00:01, 13.71it/s][A
+ 58%|#####7    | 19/33 [00:01<00:01, 13.87it/s][A
+ 64%|######3   | 21/33 [00:01<00:00, 13.97it/s][A
+ 70%|######9   | 23/33 [00:01<00:00, 14.05it/s][A
+ 76%|#######5  | 25/33 [00:01<00:00, 13.65it/s][A
+ 82%|########1 | 27/33 [00:01<00:00, 13.81it/s][A
+ 88%|########7 | 29/33 [00:02<00:00, 13.94it/s][A
+ 94%|#########3| 31/33 [00:02<00:00, 13.83it/s][A
+100%|##########| 33/33 [00:02<00:00, 13.67it/s][A                                                 
+                                               [A 80%|########  | 308/385 [01:21<00:18,  4.25it/s]
+100%|##########| 33/33 [00:02<00:00, 13.67it/s][A
+                                               [A{'eval_loss': 0.05429566279053688, 'eval_precision': 1.0, 'eval_recall': 0.9852941176470589, 'eval_accuracy': 0.9924242424242424, 'eval_f1': 0.9925925925925926, 'eval_runtime': 2.4077, 'eval_samples_per_second': 109.649, 'eval_steps_per_second': 13.706, 'epoch': 4.0}
+ 80%|########  | 309/385 [01:22<01:12,  1.04it/s] 81%|########  | 310/385 [01:22<00:55,  1.35it/s] 81%|########  | 311/385 [01:22<00:43,  1.70it/s] 81%|########1 | 312/385 [01:22<00:35,  2.07it/s] 81%|########1 | 313/385 [01:23<00:29,  2.45it/s] 82%|########1 | 314/385 [01:23<00:25,  2.81it/s] 82%|########1 | 315/385 [01:23<00:22,  3.13it/s] 82%|########2 | 316/385 [01:23<00:20,  3.40it/s] 82%|########2 | 317/385 [01:24<00:18,  3.62it/s] 83%|########2 | 318/385 [01:24<00:17,  3.86it/s] 83%|########2 | 319/385 [01:24<00:16,  3.90it/s] 83%|########3 | 320/385 [01:24<00:16,  4.00it/s] 83%|########3 | 321/385 [01:25<00:15,  4.08it/s] 84%|########3 | 322/385 [01:25<00:15,  4.13it/s] 84%|########3 | 323/385 [01:25<00:14,  4.17it/s] 84%|########4 | 324/385 [01:25<00:14,  4.20it/s] 84%|########4 | 325/385 [01:25<00:13,  4.30it/s] 85%|########4 | 326/385 [01:26<00:14,  4.21it/s] 85%|########4 | 327/385 [01:26<00:13,  4.22it/s] 85%|########5 | 328/385 [01:26<00:13,  4.24it/s] 85%|########5 | 329/385 [01:26<00:13,  4.25it/s] 86%|########5 | 330/385 [01:27<00:12,  4.25it/s] 86%|########5 | 331/385 [01:27<00:12,  4.25it/s] 86%|########6 | 332/385 [01:27<00:12,  4.26it/s] 86%|########6 | 333/385 [01:27<00:11,  4.35it/s] 87%|########6 | 334/385 [01:28<00:11,  4.32it/s] 87%|########7 | 335/385 [01:28<00:11,  4.30it/s] 87%|########7 | 336/385 [01:28<00:11,  4.29it/s] 88%|########7 | 337/385 [01:28<00:10,  4.37it/s] 88%|########7 | 338/385 [01:28<00:10,  4.34it/s] 88%|########8 | 339/385 [01:29<00:10,  4.32it/s] 88%|########8 | 340/385 [01:29<00:10,  4.30it/s] 89%|########8 | 341/385 [01:29<00:10,  4.38it/s] 89%|########8 | 342/385 [01:29<00:10,  4.26it/s] 89%|########9 | 343/385 [01:30<00:09,  4.26it/s] 89%|########9 | 344/385 [01:30<00:09,  4.26it/s] 90%|########9 | 345/385 [01:30<00:09,  4.26it/s] 90%|########9 | 346/385 [01:30<00:09,  4.26it/s] 90%|######### | 347/385 [01:31<00:08,  4.26it/s] 90%|######### | 348/385 [01:31<00:08,  4.35it/s] 91%|######### | 349/385 [01:31<00:08,  4.32it/s] 91%|######### | 350/385 [01:31<00:08,  4.31it/s] 91%|#########1| 351/385 [01:32<00:07,  4.30it/s] 91%|#########1| 352/385 [01:32<00:07,  4.29it/s] 92%|#########1| 353/385 [01:32<00:07,  4.28it/s] 92%|#########1| 354/385 [01:32<00:07,  4.27it/s] 92%|#########2| 355/385 [01:32<00:07,  4.27it/s] 92%|#########2| 356/385 [01:33<00:06,  4.27it/s] 93%|#########2| 357/385 [01:33<00:06,  4.27it/s] 93%|#########2| 358/385 [01:33<00:06,  4.27it/s] 93%|#########3| 359/385 [01:33<00:05,  4.35it/s] 94%|#########3| 360/385 [01:34<00:05,  4.33it/s] 94%|#########3| 361/385 [01:34<00:05,  4.31it/s] 94%|#########4| 362/385 [01:34<00:05,  4.30it/s] 94%|#########4| 363/385 [01:34<00:05,  4.29it/s] 95%|#########4| 364/385 [01:35<00:04,  4.28it/s] 95%|#########4| 365/385 [01:35<00:04,  4.27it/s] 95%|#########5| 366/385 [01:35<00:04,  4.35it/s] 95%|#########5| 367/385 [01:35<00:04,  4.24it/s] 96%|#########5| 368/385 [01:35<00:04,  4.25it/s] 96%|#########5| 369/385 [01:36<00:03,  4.34it/s] 96%|#########6| 370/385 [01:36<00:03,  4.32it/s] 96%|#########6| 371/385 [01:36<00:03,  4.30it/s] 97%|#########6| 372/385 [01:36<00:03,  4.29it/s] 97%|#########6| 373/385 [01:37<00:02,  4.28it/s] 97%|#########7| 374/385 [01:37<00:02,  4.28it/s] 97%|#########7| 375/385 [01:37<00:02,  4.27it/s] 98%|#########7| 376/385 [01:37<00:02,  4.27it/s] 98%|#########7| 377/385 [01:38<00:01,  4.27it/s] 98%|#########8| 378/385 [01:38<00:01,  4.27it/s] 98%|#########8| 379/385 [01:38<00:01,  4.35it/s] 99%|#########8| 380/385 [01:38<00:01,  4.24it/s] 99%|#########8| 381/385 [01:39<00:00,  4.25it/s] 99%|#########9| 382/385 [01:39<00:00,  4.25it/s] 99%|#########9| 383/385 [01:39<00:00,  4.26it/s]100%|#########9| 384/385 [01:39<00:00,  4.35it/s]100%|##########| 385/385 [01:39<00:00,  4.32it/s]                                                 100%|##########| 385/385 [01:39<00:00,  4.32it/s]{'loss': 0.0008, 'learning_rate': 0.0, 'epoch': 5.0}
+The following columns in the evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, label_class, id, __index_level_0__. If text, label_class, id, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 264
+  Batch size = 8
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  9%|9         | 3/33 [00:00<00:01, 19.20it/s][A
+ 15%|#5        | 5/33 [00:00<00:01, 16.40it/s][A
+ 21%|##1       | 7/33 [00:00<00:01, 15.43it/s][A
+ 27%|##7       | 9/33 [00:00<00:01, 14.94it/s][A
+ 33%|###3      | 11/33 [00:00<00:01, 14.12it/s][A
+ 39%|###9      | 13/33 [00:00<00:01, 14.16it/s][A
+ 45%|####5     | 15/33 [00:01<00:01, 14.16it/s][A
+ 52%|#####1    | 17/33 [00:01<00:01, 13.70it/s][A
+ 58%|#####7    | 19/33 [00:01<00:01, 13.86it/s][A
+ 64%|######3   | 21/33 [00:01<00:00, 13.97it/s][A
+ 70%|######9   | 23/33 [00:01<00:00, 14.05it/s][A
+ 76%|#######5  | 25/33 [00:01<00:00, 13.64it/s][A
+ 82%|########1 | 27/33 [00:01<00:00, 13.81it/s][A
+ 88%|########7 | 29/33 [00:02<00:00, 13.93it/s][A
+ 94%|#########3| 31/33 [00:02<00:00, 13.57it/s][A
+100%|##########| 33/33 [00:02<00:00, 13.75it/s][A                                                 
+                                               [A100%|##########| 385/385 [01:42<00:00,  4.32it/s]
+100%|##########| 33/33 [00:02<00:00, 13.75it/s][A{'eval_loss': 0.03765636682510376, 'eval_precision': 1.0, 'eval_recall': 0.9852941176470589, 'eval_accuracy': 0.9924242424242424, 'eval_f1': 0.9925925925925926, 'eval_runtime': 2.4076, 'eval_samples_per_second': 109.654, 'eval_steps_per_second': 13.707, 'epoch': 5.0}
+                                               [A
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+
+                                                 {'train_runtime': 102.3977, 'train_samples_per_second': 30.079, 'train_steps_per_second': 3.76, 'train_loss': 0.0807585451703567, 'epoch': 5.0}100%|##########| 385/385 [01:42<00:00,  4.32it/s]
+100%|##########| 385/385 [01:42<00:00,  3.76it/s]
+The following columns in the evaluation set don't have a corresponding argument in `BertForSequenceClassification.forward` and have been ignored: text, label_class, id, __index_level_0__. If text, label_class, id, __index_level_0__ are not expected by `BertForSequenceClassification.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 264
+  Batch size = 8
+  0%|          | 0/33 [00:00<?, ?it/s]  9%|9         | 3/33 [00:00<00:01, 19.20it/s] 15%|#5        | 5/33 [00:00<00:01, 16.40it/s] 21%|##1       | 7/33 [00:00<00:01, 15.39it/s] 27%|##7       | 9/33 [00:00<00:01, 14.93it/s] 33%|###3      | 11/33 [00:00<00:01, 14.11it/s] 39%|###9      | 13/33 [00:00<00:01, 14.15it/s] 45%|####5     | 15/33 [00:01<00:01, 14.17it/s] 52%|#####1    | 17/33 [00:01<00:01, 13.71it/s] 58%|#####7    | 19/33 [00:01<00:01, 13.87it/s] 64%|######3   | 21/33 [00:01<00:00, 13.97it/s] 70%|######9   | 23/33 [00:01<00:00, 14.05it/s] 76%|#######5  | 25/33 [00:01<00:00, 13.64it/s] 82%|########1 | 27/33 [00:01<00:00, 13.81it/s] 88%|########7 | 29/33 [00:02<00:00, 13.94it/s] 94%|#########3| 31/33 [00:02<00:00, 14.02it/s]100%|##########| 33/33 [00:02<00:00, 13.63it/s]100%|##########| 33/33 [00:02<00:00, 14.04it/s]
+INFO: [root] ***** Final Eval *****
+ {'eval_loss': 0.03765636682510376, 'eval_precision': 1.0, 'eval_recall': 0.9852941176470589, 'eval_accuracy': 0.9924242424242424, 'eval_f1': 0.9925925925925926, 'eval_runtime': 2.392, 'eval_samples_per_second': 110.367, 'eval_steps_per_second': 13.796, 'epoch': 5.0}
+Saving model checkpoint to C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model
+Configuration saved in C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model\config.json
+Model weights saved in C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model\pytorch_model.bin
+tokenizer config file saved in C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model\tokenizer_config.json
+Special tokens file saved in C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model\special_tokens_map.json
+INFO: [guild] running test: test label_strat=binary
+Resolving file:test_data.csv
+INFO: [numexpr.utils] Note: NumExpr detected 20 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO: [numexpr.utils] NumExpr defaulting to 8 threads.
+INFO: [root] Detected label names: ['Auszubildende', 'Sonstige Arbeitnehmer']
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--precision\4e7f439a346715f68500ce6f2be82bf3272abd3f20bdafd203a2c4f85b61dd5f (last modified on Mon Dec 19 10:49:43 2022) since it couldn't be found locally at evaluate-metric--precision, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--recall\e40e6e98d18ff3f210f4d0b26fa721bfaa80704b1fdf890fa551cfabf94fc185 (last modified on Mon Dec 19 10:49:44 2022) since it couldn't be found locally at evaluate-metric--recall, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--accuracy\f887c0aab52c2d38e1f8a215681126379eca617f96c447638f751434e8e65b14 (last modified on Mon Dec 19 10:49:46 2022) since it couldn't be found locally at evaluate-metric--accuracy, or remotely on the Hugging Face Hub.
+WARNING: [evaluate.loading] Using the latest cached version of the module from C:\Users\Admin\.cache\huggingface\modules\evaluate_modules\metrics\evaluate-metric--f1\0ca73f6cf92ef5a268320c697f7b940d1030f8471714bffdb6856c641b818974 (last modified on Mon Dec 19 10:49:47 2022) since it couldn't be found locally at evaluate-metric--f1, or remotely on the Hugging Face Hub.
+all_f1: 0.9873417721518987
+all_recall: 0.975
+all_precision: 1.0
+all_accuracy: 0.9875
+tk_f1: 0.9873417721518987
+tk_recall: 0.975
+tk_precision: 1.0
+tk_accuracy: 0.9875
+ba_f1: 0.9743589743589743
+ba_recall: 0.95
+ba_precision: 1.0
+ba_accuracy: 0.975
+len_f1: 1.0
+len_recall: 1.0
+len_precision: 1.0
+len_accuracy: 1.0

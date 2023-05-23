@@ -1,0 +1,5 @@
+epochs: 5
+label_strat: multiclass
+lr: 0.0001
+model: jobbert
+warmup: 0

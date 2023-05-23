@@ -1,0 +1,5 @@
+file:test_data.csv:
+  file:test_data.csv:
+    paths:
+    - ..\..\..\..\..\..\Desktop\dev\kk\azb_klassifizierer\train_iter2\test_data.csv
+    uri: file:test_data.csv

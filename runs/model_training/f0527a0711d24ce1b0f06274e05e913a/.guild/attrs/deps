@@ -1,0 +1,10 @@
+file:az_tk_data.csv:
+  file:az_tk_data.csv:
+    paths:
+    - ..\..\..\..\..\..\Desktop\dev\kk\azb_klassifizierer\search_3\az_tk_data.csv
+    uri: file:az_tk_data.csv
+file:test_data.csv:
+  file:test_data.csv:
+    paths:
+    - ..\..\..\..\..\..\Desktop\dev\kk\azb_klassifizierer\search_3\test_data.csv
+    uri: file:test_data.csv

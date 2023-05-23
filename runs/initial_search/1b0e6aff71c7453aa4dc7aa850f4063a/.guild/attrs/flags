@@ -1,0 +1,6 @@
+epochs: 5
+label_strat: multiclass
+load-data: 912bf48c50a44c779bf423fb85778ebd
+lr: 1.0e-06
+model: gbert
+warmup: 0

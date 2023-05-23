@@ -1,0 +1,8 @@
+balance_strat: no_balance
+epochs: 5
+label_strat: multiclass
+lr: 1.0e-06
+model: bert
+ratio: 0
+size: 10000
+warmup: 0

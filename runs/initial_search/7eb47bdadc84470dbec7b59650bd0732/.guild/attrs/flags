@@ -1,0 +1,6 @@
+epochs: 3
+label_strat: binary
+load-data: e5971bb3d08840df9334db713230b625
+lr: 1.0e-05
+model: distilbert
+warmup: 500
