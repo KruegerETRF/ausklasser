@@ -32,14 +32,14 @@ model_path = "C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 model = AutoModelForSequenceClassification.from_pretrained(model_path, num_labels = num_labels).to(device)
 
-# construct classifier
+# construct classifier using huggingface pipeline
 classifier = pipeline(model=model, tokenizer=tokenizer, task="text-classification", device=0)
 # device=0 zeigt an, dass es auf die erste GPU geladen werden soll. -1 würde CPU bedeuten. 
 tokenizer_kwargs = {'padding':True,'truncation':True,'max_length':512}
 
 
 #------------------------------------------------------------------
-# Define helper functions. Potentially outsource to utils.py, but maybe less efficient
+# Define helper functions
 def get_preds(classifier, df, num_labels, tokenizer_kwargs):
     dataset = Dataset.from_pandas(test_df)
     y_preds = []

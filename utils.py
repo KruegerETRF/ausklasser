@@ -23,6 +23,7 @@ def remove_test_data(df):
 
 
 def compose_data(df, label_strat, balance_strat):
+    """Handles the dataframe depending on the two parameters label strategy and balance strategy. It also logs the final distribution of the labels."""
     if label_strat == "binary": 
         df["label"] = [0 if lc in ('Auszubildende','Azubi') else 1 for lc in df.label_class.tolist()]
         if balance_strat == "no_balance":
@@ -114,8 +115,3 @@ def get_label_names(label_strat):
     
     logging.info(f"Detected label names: {names}")
     return (names)
-
-
-
-#to do: longtext? 
-#to do: stresstest Dataset? (z.B. Katharinas, ...Suchen Keine Azubi...., sehr lange, )

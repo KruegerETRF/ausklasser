@@ -29,10 +29,13 @@ args = parser.parse_args()
 
 #_______________________________
 
+# load data from previous step
+
 df = pd.read_csv('input_data.csv', index_col = 0)
 num_labels = len(set(df.label.tolist()))
 logging.info(f"num_labels: {num_labels}")
 label_names = get_label_names(args.label_strat)
+
 # list of available models
 available_models = {"bert": "bert-base-multilingual-cased",
                     "gbert" : "bert-base-german-cased",
@@ -41,32 +44,37 @@ available_models = {"bert": "bert-base-multilingual-cased",
 }
 
 
-
+# load model and tokenizer depending on model chosen for the run
 MODEL_NAME = available_models[args.model]
-
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
+#use GPU
 device = torch.device("cuda" if torch.cuda.is_available else "cpu")
 
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME, num_labels = num_labels).to(device)
 
+
+
 def tokenize_function(data):
+    """tokenizes the data using the tokenizer passed to the function"""
     return tokenizer(data["text"], padding = "max_length", truncation = True)
 
-
+# create huggingface dataset and apply tokenization
 dataset = Dataset.from_pandas(df)
 tokenized_dataset = dataset.map(tokenize_function, batched=True)
 
-
+# test / eval split 70 / 30
 input_dict = tokenized_dataset.train_test_split(test_size = 0.3)
 
-
+## load metrics
 metric1 = evaluate.load("precision")
 metric2 = evaluate.load("recall")
 metric3 = evaluate.load("accuracy")
 metric4 = evaluate.load("f1")
 
 def compute_metrics(eval_pred):
+    """Define function to compute metrics for training evaluation. 
+    If there are more than 2 labels, precision, recall and f1 need to have the average argument passed onto them, which is 'macro' in this case"""
     logits, labels = eval_pred
     predictions = np.argmax(logits, axis=-1)
     
@@ -85,7 +93,7 @@ def compute_metrics(eval_pred):
 
 
 
-
+# initializing training arguments
 training_args = TrainingArguments(
     output_dir = './results',
     num_train_epochs = args.epochs,
@@ -100,16 +108,16 @@ training_args = TrainingArguments(
     )
 
 
-
+# initializing the trainer instance
 trainer = Trainer(
-    model=model,                         # the instantiated 🤗 Transformers model to be trained
-    args=training_args,                  # training arguments, defined above
-    train_dataset=input_dict["train"],         # training dataset
+    model=model,                         
+    args=training_args,                  
+    train_dataset=input_dict["train"],       
     eval_dataset=input_dict["test"],
     tokenizer = tokenizer,
     compute_metrics=compute_metrics              
 )
 
 trainer.train()
-logging.info(f"***** Final Eval *****\n {trainer.evaluate()}")
+
 trainer.save_model("C:/Users/Admin/Desktop/dev/kk/azb_klassifizierer/experiment_saves/current_model")
