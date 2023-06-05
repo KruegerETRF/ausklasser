@@ -1,16 +1,3 @@
-# flags:
-# high level flags:
-# - binary or multiclass 
-# - text_length handling
-
-# data composition:
-# different sizes, ratios 
-
-# train
-# different models
-
-# test
-
 load-data:
   main: load_data
   description: Loads and processes the data for the train run. Flags are size, ratio, balance_strat and label_strat. 
